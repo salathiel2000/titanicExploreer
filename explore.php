@@ -95,7 +95,58 @@
 
 </form>
 
-<?php 
+<?php
+	// Step 3: Process Query for Results
+//SELECT
+	$query = "SELECT ";
+	$query .= "name, homeDest, ";
+	
+//FROM
+	$query = substr($query, 0, -2); // Remove last comma.
+	$query .= " FROM passenger"; // Begin table selection.
+	$query .= " INNER JOIN ticket ON passenger.pid = ticket.pid";
+	$query .= " INNER JOIN cabin ON passenger.pid = cabin.pid";
+//WHERE
+
+		$query .= " WHERE (true)"; // Just makes it so I don't have to check for a condition being the FIRST in a long chain.
+		if (!empty($requestedDeck) && ($requestedDeck != 'any')) {
+			$query .= " AND LEFT(cabin.cabinNumber, 1) = '". $requestedDeck . "'";
+		} 
+		if (!empty($requestedClass) && ($requestedClass != 'any')) {
+			$query .= " AND ticket.class = '" . $requestedClass . "'";
+		}
+//SUBMIT
+	echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
+	$result = db_query($query); // Send off query to msqli.
+
+	
+	?>
+	<?php
+		if (!empty($submit)) {
+			// Step 4: Display Result
+			if (!$result) { 
+				die("Bad query! Please mark mercifully."); 
+			} else {
+				echo "<h3>Result: </h3>";
+			}
+
+			// Print table.
+			echo "<table>";
+			echo "	<tr>";
+			echo "		<td><strong>Name</strong></td>";
+			echo "		<td><strong>Home/Destination</strong></td>";
+			echo "	</tr>";
+
+			while ($row = $result->fetch_assoc()) { // Get associative array row by row.
+				echo "	<tr>";
+				echo "		<td>".$row['name']."</td>"; // Some values are right-aligned.
+				echo "		<td>".$row['homeDest']."</td>";
+				echo "	</tr>";
+			}
+			
+			echo "</table>";
+		}
+
 	// Includes minimal header. Closes </body>, and closes </html>.
 	include("includes/footer.php"); 
 ?>
