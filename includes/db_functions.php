@@ -20,15 +20,31 @@
 		}
 		echo '<br>Debug: Connection Successful</br>';
 	}
+	
 	function db_query($queryString) {
 		global $connection;
 		return $result = mysqli_query($connection, $queryString);
 	}
 	
 	function db_close() {
-	global $result, $connection;
+		global $result, $connection;
 		//$result->free_result();
 		$connection->close();
 		
+	}
+
+	function validate_string($value) {
+        $string_regex = '/^[a-zA-Z ]*$/';
+        return preg_match($string_regex, $value) === 1;
+      }
+
+    function validate_email($value) {
+        $email_regex = '/\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\Z/i'; 
+        return preg_match($email_regex, $value) === 1; 
+	}
+	
+	function validate_number($value){
+		$number_regex = '/[^0-9]/';
+		return preg_match($number_regex, $value) === 1; 
 	}
 ?>

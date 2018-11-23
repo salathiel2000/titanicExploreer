@@ -2,6 +2,8 @@
 
 	<head>
 		<title>TitanicExplorer</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" media="screen" href="includes/main.css"/>
 	</head>
 
 	<body>
@@ -16,6 +18,5 @@
 			<a href="login.php"><li>Login</li></a> <!-- TODO: Make this say Logout when already logged in. -->
 		</ul>
 	</nav>
-
 
 	<!-- PHP content created after this point. -->
