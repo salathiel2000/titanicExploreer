@@ -17,7 +17,7 @@
 	// Step 1: Connect.
 	db_connect(); // Found in db_functions.
 
-	require_once("pagination.php"); //Include pagination functions.
+	require_once("includes/pagination.php"); //Include pagination functions.
 ?>
 
 <?php
@@ -95,8 +95,9 @@
 
 	<input type="submit" name="submit" value="Submit"><br>
 			
-
 </form>
+
+<p>Pagination</p>
 
 <?php
 
