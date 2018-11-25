@@ -116,7 +116,7 @@ $offset = ($currPage - 1) * $limit;
 	// Step 3: Process Query for Results
 //SELECT
 	$query = "SELECT ";
-	$query .= "name, homeDest, class, cabinNumber, ";
+	$query .= "passenger.pid, name, homeDest, class, cabinNumber, ";
 	
 //FROM
 	$query = substr($query, 0, -2); // Remove last comma.
@@ -150,29 +150,27 @@ $offset = ($currPage - 1) * $limit;
 			// Step 4: Display Result
 			if (!$result) { 
 				die("Bad query! Please mark mercifully."); 
-			} else {
-				echo "<h3>Result: </h3>";
 			}
 
 			// Print table.
-			echo "<table>";
-			echo "	<tr>";
-			echo "		<td><strong>Name</strong></td>";
-			echo "		<td><strong>Home/Destination</strong></td>";
-			echo "		<td><strong>Cabin</strong></td>";
-			echo "		<td><strong>Class</strong></td>";
-			echo "	</tr>";
+			echo '<table>';
+			echo '	<tr>';
+			echo '		<td><strong>Name</strong></td>';
+			echo '		<td><strong>Home/Destination</strong></td>';
+			echo '		<td><strong>Cabin</strong></td>';
+			echo '		<td><strong>Class</strong></td>';
+			echo '	</tr>';
 
 			while ($row = $result->fetch_assoc()) { // Get associative array row by row.
-				echo "	<tr>";
-				echo "		<td>".$row['name']."</td>";
-				echo "		<td>".$row['homeDest']."</td>";
-				echo "		<td>".$row['cabinNumber']."</td>"; 
-				echo "		<td>".$row['class']."</td>";
-				echo "	</tr>";
+				echo '	<tr>';
+				echo '		<td><a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a></td>';
+				echo '		<td>'.$row['homeDest'].'</td>';
+				echo '		<td>'.$row['cabinNumber'].'</td>'; 
+				echo '		<td>'.$row['class'].'</td>';
+				echo '	</tr>';
 			}
 			
-			echo "</table>";		
+			echo "</table>";	
 
 	// Includes minimal header. Closes </body>, and closes </html>.
 	include("includes/footer.php"); 

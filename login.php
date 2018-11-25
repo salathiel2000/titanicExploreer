@@ -1,5 +1,5 @@
 <?php 
-	session_start();
+	
 	
 	// Includes <html> and <body>. Also includes navigation bar.
 	include("includes/header.php");
