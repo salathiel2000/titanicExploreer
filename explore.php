@@ -16,6 +16,8 @@
 
 	// Step 1: Connect.
 	db_connect(); // Found in db_functions.
+
+	require_once("pagination.php"); //Include pagination functions.
 ?>
 
 <?php
@@ -91,12 +93,26 @@
 
 
 
-	<input type="submit" name="submit" value="Submit">
+	<input type="submit" name="submit" value="Submit"><br>
 			
 
 </form>
 
 <?php
+
+//display number of pages 
+for($i=1; $i<$pages+1; $i++){
+	echo "<a href=\"explore.php?pageNum=$i\">$i </a>";
+	if($i>1 && isset($_GET['pageNum'])){
+		$currPage = (int) $_GET['pageNum']; 
+	} else {
+		$currPage = 1; 
+	}
+}
+
+//which page are we currently on
+$offset = ($currPage - 1) * $limit; 
+
 	// Step 3: Process Query for Results
 //SELECT
 	$query = "SELECT ";
@@ -121,6 +137,8 @@
 			$searchKeyword = filter_var($searchKeyword, FILTER_SANITIZE_SPECIAL_CHARS);
 			$query .= " AND passenger.name LIKE '%".$searchKeyword."%' OR passenger.homeDest LIKE '%".$searchKeyword."%'";
 		}
+//LIMIR
+		$query .= " LIMIT ".$limit." OFFSET ".$offset; 
 //SUBMIT
 	echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
 	$result = db_query($query); // Send off query to msqli.
@@ -154,8 +172,7 @@
 				echo "	</tr>";
 			}
 			
-			echo "</table>";
-		
+			echo "</table>";		
 
 	// Includes minimal header. Closes </body>, and closes </html>.
 	include("includes/footer.php"); 
