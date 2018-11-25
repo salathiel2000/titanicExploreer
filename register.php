@@ -86,7 +86,7 @@
 
     if((count($error) == 0) && isset($_POST['submit'])){
         
-        $insertQuery = "INSERT INTO member (fName, lName, emailAddress, password, age, gender, annualIncome) "; 
+        $insertQuery = "INSERT INTO member (fName, lName, emailAddress, password, userAge, userGender, annualIncome) "; 
         $insertQuery .= "VALUES (?, ?, ?, ?, ?, ?, ?)"; 
 
         $stmt = $connection->prepare($insertQuery); 
