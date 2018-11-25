@@ -10,7 +10,7 @@
 
 	if (isset($_POST['filterDeck'])) $requestedDeck = $_POST['filterDeck']; // If user wants specific deck.
 	if (isset($_POST['filterClass'])) $requestedClass = $_POST['filterClass']; // If user wants specific class.
-	
+	if (isset($_POST['search'])) $searchKeyword = $_POST['search'];
 	require_once("includes/db_functions.php"); // Include basic database connection functions.
 	require_once("includes/functions.php"); // Include utility functions.
 
@@ -27,10 +27,11 @@
 		<h1>Query</h1>
 	</header>
 	<p>
-
 	<div class="panel">
 	<h3>Filters</h3>
-	<p>Cabin Deck:
+	<p>Search:
+	<input name="search" type="text" <?php if (isset($searchKeyword)) echo 'value="'.$searchKeyword.'"';?>>
+	Cabin Deck:
 		<select name="filterDeck">
 			<option value="any">Any</option>	
 			<?php
@@ -99,7 +100,7 @@
 	// Step 3: Process Query for Results
 //SELECT
 	$query = "SELECT ";
-	$query .= "name, homeDest, ";
+	$query .= "name, homeDest, class, cabinNumber, ";
 	
 //FROM
 	$query = substr($query, 0, -2); // Remove last comma.
@@ -115,6 +116,11 @@
 		if (!empty($requestedClass) && ($requestedClass != 'any')) {
 			$query .= " AND ticket.class = '" . $requestedClass . "'";
 		}
+
+		if (!empty($searchKeyword)) {
+			$searchKeyword = filter_var($searchKeyword, FILTER_SANITIZE_SPECIAL_CHARS);
+			$query .= " AND passenger.name LIKE '%".$searchKeyword."%' OR passenger.homeDest LIKE '%".$searchKeyword."%'";
+		}
 //SUBMIT
 	echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
 	$result = db_query($query); // Send off query to msqli.
@@ -122,7 +128,7 @@
 	
 	?>
 	<?php
-		if (!empty($submit)) {
+		
 			// Step 4: Display Result
 			if (!$result) { 
 				die("Bad query! Please mark mercifully."); 
@@ -135,17 +141,21 @@
 			echo "	<tr>";
 			echo "		<td><strong>Name</strong></td>";
 			echo "		<td><strong>Home/Destination</strong></td>";
+			echo "		<td><strong>Cabin</strong></td>";
+			echo "		<td><strong>Class</strong></td>";
 			echo "	</tr>";
 
 			while ($row = $result->fetch_assoc()) { // Get associative array row by row.
 				echo "	<tr>";
-				echo "		<td>".$row['name']."</td>"; // Some values are right-aligned.
+				echo "		<td>".$row['name']."</td>";
 				echo "		<td>".$row['homeDest']."</td>";
+				echo "		<td>".$row['cabinNumber']."</td>"; 
+				echo "		<td>".$row['class']."</td>";
 				echo "	</tr>";
 			}
 			
 			echo "</table>";
-		}
+		
 
 	// Includes minimal header. Closes </body>, and closes </html>.
 	include("includes/footer.php"); 
