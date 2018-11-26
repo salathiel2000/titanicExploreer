@@ -2,10 +2,10 @@
     require_once("includes/db_functions.php"); 
     db_connect(); 
 
-    if (isset($_POST['filterDeck'])) $requestedDeck = $_POST['filterDeck']; // If user wants specific deck.
-    if (isset($_POST['filterClass'])) $requestedClass = $_POST['filterClass']; // If user wants specific class.
-    if (isset($_POST['search'])) $searchKeyword = $_POST['search'];
-    
+    if (isset($_GET['filterDeck'])) $requestedDeck = $_GET['filterDeck']; // If user wants specific deck.
+	if (isset($_GET['filterClass'])) $requestedClass = $_GET['filterClass']; // If user wants specific class.
+	if (isset($_GET['search'])) $searchKeyword = $_GET['search'];
+
     // Step 3: Process Query for Results
     //SELECT
 	$query = "SELECT ";
@@ -32,9 +32,21 @@
     }
 
     //LIMIT
-    $query .= " LIMIT ".$limit." OFFSET ".$offset; 
+    // $query .= " LIMIT ".$limit." OFFSET ".$offset; 
 
     //SUBMIT
-	$result = db_query($query); // Send off query to msqli.
+    $result = db_query($query); // Send off query to msqli.
+    
+    while ($row = $result->fetch_assoc()) { // Get associative array row by row.
+        $output =  '<tr>
+                    <td><a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a></td>
+                    <td>'.$row['homeDest'].'</td>
+                    <td>'.$row['cabinNumber'].'</td>
+                    <td>'.$row['class'].'</td>
+                    </tr>';
+
+        echo $output; 
+    }
+
                 
 ?>

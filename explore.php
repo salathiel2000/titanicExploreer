@@ -162,6 +162,7 @@ $offset = ($currPage - 1) * $limit;
 			echo '		<td><strong>Class</strong></td>';
 			echo '	</tr>';
 
+			// echo '<tr id="result"></tr>';
 			while ($row = $result->fetch_assoc()) { // Get associative array row by row.
 				echo '	<tr>';
 				echo '		<td><a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a></td>';
@@ -171,7 +172,7 @@ $offset = ($currPage - 1) * $limit;
 				echo '	</tr>';
 			}
 			
-			echo "</table>";	
+			// echo "</table>";	
 
 	// Includes minimal header. Closes </body>, and closes </html>.
 	include("includes/footer.php"); 
