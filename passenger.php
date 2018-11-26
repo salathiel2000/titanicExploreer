@@ -2,6 +2,7 @@
     include("includes/header.php"); 
     require_once("includes/db_functions.php");
 
+    //connect to the database
     db_connect(); 
 
     $pid = ""; 
@@ -18,11 +19,13 @@
     $query .= " INNER JOIN cabin ON passenger.pid = cabin.pid";
     $query .= " WHERE passenger.pid = ?"; 
 
+    //prepare the query 
     $stmt = $connection->prepare($query); 
     //bind id from URL to query 
     $stmt->bind_param('i', $pid); 
+    //execute the query 
     $stmt->execute(); 
-    //bind the results for display on the page
+    //bind the results from the query to variables
     $stmt->bind_result($name, $age, $gender, $homeDest, $class, $cabin);
 
 ?>
