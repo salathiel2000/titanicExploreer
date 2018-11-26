@@ -6,11 +6,11 @@
 <?php
 
 	// Fetch form submission variables if included.
-	if (isset($_POST['submit'])) $submit = $_POST['submit'];
+	if (isset($_GET['submit'])) $submit = $_GET['submit'];
 
-	if (isset($_POST['filterDeck'])) $requestedDeck = $_POST['filterDeck']; // If user wants specific deck.
-	if (isset($_POST['filterClass'])) $requestedClass = $_POST['filterClass']; // If user wants specific class.
-	if (isset($_POST['search'])) $searchKeyword = $_POST['search'];
+	if (isset($_GET['filterDeck'])) $requestedDeck = $_GET['filterDeck']; // If user wants specific deck.
+	if (isset($_GET['filterClass'])) $requestedClass = $_GET['filterClass']; // If user wants specific class.
+	if (isset($_GET['search'])) $searchKeyword = $_GET['search'];
 	require_once("includes/db_functions.php"); // Include basic database connection functions.
 	require_once("includes/functions.php"); // Include utility functions.
 
@@ -24,7 +24,7 @@
 
 ?>
 
-<form action="explore.php" method="post">
+<form action="explore.php" method="get">
 	<header>
 		<h1>Query</h1>
 	</header>
@@ -102,8 +102,8 @@
 <?php
 
 //display number of pages 
-for($i=1; $i<$pages+1; $i++){
-	echo "<a href=\"explore.php?pageNum=$i\">$i </a>";
+for($i=1; $i<$pages+1; $i++){ // TO-DO: Limit number of pages if the number of results is lower than the maximum.
+	echo '<a href="explore.php?'.http_build_query(array_merge($_GET, array('pageNum'=> $i))).'">'.$i.' </a>'; // Revised line which adds a new URL parameter.
 	if($i>1 && isset($_GET['pageNum'])){
 		$currPage = (int) $_GET['pageNum']; 
 	} else {
