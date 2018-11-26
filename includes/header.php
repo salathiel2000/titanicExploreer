@@ -1,3 +1,4 @@
+
 <?php
 	session_start();
 ?>
@@ -8,6 +9,8 @@
 		<title>TitanicExplorer</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" media="screen" href="includes/main.css"/>
+		<script src="includes/jquery-3.3.1.min.js" type="text/javascript"></script>
+		<script src="includes/titanic.js" type="text/javascript"></script>
 	</head>
 
 	<body>

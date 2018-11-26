@@ -30,11 +30,11 @@
 	</header>
 	<p>
 	<div class="panel">
-	<h3>Filters</h3>
+	<h3 id="filter">Filters</h3>
 	<p>Search:
 	<input name="search" type="text" <?php if (isset($searchKeyword)) echo 'value="'.$searchKeyword.'"';?>>
 	Cabin Deck:
-		<select name="filterDeck">
+		<select id="filterDeck" name="filterDeck">
 			<option value="any">Any</option>	
 			<?php
 
@@ -62,7 +62,7 @@
 		</select>
 
 		Class: 
-		<select name="filterClass">
+		<select id="filterClass" name="filterClass">
 			<option value="any">Any</option>	
 			<?php
 

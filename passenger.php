@@ -60,4 +60,11 @@ if($stmt->fetch()){
 if(isset($_SESSION['valid_user'])){
     echo "<a href=\"#\">Add to address book</a>";
 }
+
+//have to add in functionality to check if passenger is already in address book 
+/*
+
+
+*/
+
 ?>
