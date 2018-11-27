@@ -136,7 +136,7 @@ $offset = ($currPage - 1) * $limit;
 
 		if (!empty($searchKeyword)) {
 			$searchKeyword = filter_var($searchKeyword, FILTER_SANITIZE_SPECIAL_CHARS);
-			$query .= " AND passenger.name LIKE '%".$searchKeyword."%' OR passenger.homeDest LIKE '%".$searchKeyword."%'";
+			$query .= " AND (passenger.name LIKE '%".$searchKeyword."%' OR passenger.homeDest LIKE '%".$searchKeyword."%')";
 		}
 //LIMIR
 		$query .= " LIMIT ".$limit." OFFSET ".$offset; 
