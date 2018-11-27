@@ -172,7 +172,7 @@ $offset = ($currPage - 1) * $limit;
 				echo '	</tr>';
 			}
 			
-			// echo "</table>";	
+			echo "</table>";	
 
 	// Includes minimal header. Closes </body>, and closes </html>.
 	include("includes/footer.php"); 
