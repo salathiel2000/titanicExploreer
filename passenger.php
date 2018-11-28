@@ -26,7 +26,7 @@
     //execute the query 
     $stmt->execute(); 
     //bind the results from the query to variables
-    $stmt->bind_result($name, $age, $gender, $homeDest, $class, $cabin);
+    $stmt->bind_result($name, $gender, $age, $homeDest, $class, $cabin);
 
 ?>
 
