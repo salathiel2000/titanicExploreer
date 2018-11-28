@@ -39,10 +39,10 @@
     
     while ($row = $result->fetch_assoc()) { // Get associative array row by row.
         $output =  '<tr>
-                    <td><a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a></td>
-                    <td>'.$row['homeDest'].'</td>
-                    <td>'.$row['cabinNumber'].'</td>
-                    <td>'.$row['class'].'</td>
+                    <td id="passengerName"><a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a></td>
+                    <td id="homeDest">'.$row['homeDest'].'</td>
+                    <td id="cabinNumber">'.$row['cabinNumber'].'</td>
+                    <td id="class">'.$row['class'].'</td>
                     </tr>';
 
         echo $output; 

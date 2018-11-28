@@ -32,7 +32,7 @@
 	<div class="panel">
 	<h3 id="filter">Filters</h3>
 	<p>Search:
-	<input name="search" type="text" <?php if (isset($searchKeyword)) echo 'value="'.$searchKeyword.'"';?>>
+	<input id="search" name="search" type="text" <?php if (isset($searchKeyword)) echo 'value="'.$searchKeyword.'"';?>>
 	Cabin Deck:
 		<select id="filterDeck" name="filterDeck">
 			<option value="any">Any</option>	
@@ -163,12 +163,14 @@ $offset = ($currPage - 1) * $limit;
 			echo '	</tr>';
 
 			// echo '<tr id="result"></tr>';
+			
+			
 			while ($row = $result->fetch_assoc()) { // Get associative array row by row.
 				echo '	<tr id="result">';
-				echo '		<td><a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a></td>';
-				echo '		<td>'.$row['homeDest'].'</td>';
-				echo '		<td>'.$row['cabinNumber'].'</td>'; 
-				echo '		<td>'.$row['class'].'</td>';
+				echo '		<td id="passengerName"><a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a></td>';
+				echo '		<td id="homeDest">'.$row['homeDest'].'</td>';
+				echo '		<td id="cabinNumber">'.$row['cabinNumber'].'</td>'; 
+				echo '		<td id="class">'.$row['class'].'</td>';
 				echo '	</tr>';
 			}
 			
