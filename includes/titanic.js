@@ -1,52 +1,40 @@
 $(document).ready(function(){
 
-    var search = ""; 
-    var filterDeck = ""; 
-    var filterClass = ""; 
+    var search = $("#search").val(); 
+    var filterDeck = $("#filterDeck").val(); 
+    var filterClass = $("#filterClass").val(); 
     // var myUrl = "deckFilter.php?search="+search+"filterDeck="+filterDeck
+
+    $("tbody").attr("id", "result"); 
 
     // AJAX for filtering the deck 
     $("#filterDeck").change(function(event){
         event.preventDefault(); 
         filterDeck = $(this).val(); 
-        var myUrl = "deckFilter.php?search="+search+"&filterDeck="+filterDeck+"&filterClass=";
+        search = $("#search").val(); 
+        filterClass = $("#filterClass").val(); 
+        var myUrl = "deckFilter.php?search="+search+"&filterDeck="+filterDeck+"&filterClass="+filterClass;
          $.get(myUrl, function(data, status){
             if(status == "success"){
                 $("#result").html(data); 
-                console.log("filterDeck:"+myUrl);     
+                // $("#testCode").html(data);  //update query with AJAX for debugging purpose
+                console.log(myUrl);     
             }
          });
     });
-
-    // $("#filterDeck").change(function(event){
-    //     event.preventDefault(); 
-    //     filterDeck = $(this).val(); 
-    //     var myUrl = "deckFilter.php?search="+search+"&filterDeck="+filterDeck+"&filterClass=";
-    //     $.ajax({
-    //         type     : 'GET',
-    //         url      : myUrl,
-    //         data     : {name : name , homeDest : homeDest , cabinNumber : cabinNumber}, 
-    //         success  : function(response){
-    //                     // now update user record in table 
-    //                     $('#result').children('#passengerName').text(name);
-    //                     $('#result').children('#homeDest').text(homeDest);
-    //                     $('#result').children('#cabinNumber').text(cabinNumber);
-    //                     // $('#result').children('#class').text(class);
-
-    //                }
-    //         }); 
-    //     });
-
                    
     //AJAX for filtering the cabin
     $("#filterClass").change(function(event){
         event.preventDefault(); 
         filterClass = $(this).val(); 
+        search = $("#search").val(); 
+        filterDeck = $("#filterDeck").val();  
         var myUrl = "deckFilter.php?search="+search+"&filterDeck="+filterDeck+"&filterClass="+filterClass;
-         $.get(myUrl, function(data, status){
+        $.get(myUrl, function(data, status){
             if(status == "success"){
                 $("#result").html(data); 
-                console.log("filterClass:"+myUrl);      
+                // $(".#testCode").html(data); //update query with AJAX for debugging purpose
+                console.log(myUrl);       
             }
          });
     });
@@ -55,10 +43,13 @@ $(document).ready(function(){
     $("#search").keyup(function(event){
         event.preventDefault(); 
         search = $(this).val(); 
+        filterDeck = $("#filterDeck").val(); 
+        filterClass = $("#filterClass").val();   
         var myUrl = "deckFilter.php?search="+search+"&filterDeck="+filterDeck+"&filterClass="+filterClass;
          $.get(myUrl, function(data, status){
             if(status == "success"){
                 $("#result").html(data); 
+                // $("#testCode").html(data); //update query with AJAX for debugging purpose
                 console.log("search:"+myUrl);      
             }
          });

@@ -3,3 +3,7 @@ fieldset{
     padding: 0;
     margin: 0;
 }
+
+th{
+    text-align: left; 
+}

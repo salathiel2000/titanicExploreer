@@ -28,7 +28,7 @@
 
     if (!empty($searchKeyword)) {
         $searchKeyword = filter_var($searchKeyword, FILTER_SANITIZE_SPECIAL_CHARS);
-        $query .= " AND passenger.name LIKE '%".$searchKeyword."%' OR passenger.homeDest LIKE '%".$searchKeyword."%'";
+        $query .= " AND (passenger.name LIKE '%".$searchKeyword."%' OR passenger.homeDest LIKE '%".$searchKeyword."%')";
     }
 
     //LIMIT
@@ -47,6 +47,11 @@
 
         echo $output; 
     }
+
+    // echo $query; 
+    // echo $output;
+
+    
 
                 
 ?>

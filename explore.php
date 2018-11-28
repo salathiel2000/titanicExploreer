@@ -143,6 +143,7 @@ $offset = ($currPage - 1) * $limit;
 //SUBMIT
 	echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
 	$result = db_query($query); // Send off query to msqli.
+	echo "<code id=\"testCode\"></code>";
 
 	
 	?>
@@ -155,18 +156,20 @@ $offset = ($currPage - 1) * $limit;
 
 			// Print table.
 			echo '<table>';
-			echo '	<tr>';
-			echo '		<td><strong>Name</strong></td>';
-			echo '		<td><strong>Home/Destination</strong></td>';
-			echo '		<td><strong>Cabin</strong></td>';
-			echo '		<td><strong>Class</strong></td>';
-			echo '	</tr>';
+			echo '	<thead>';
+			echo '		<tr>';
+			echo '		<th><strong>Name</strong></th>';
+			echo '		<th><strong>Home/Destination</strong></th>';
+			echo '		<th><strong>Cabin</strong></th>';
+			echo '		<th><strong>Class</strong></th>';
+			echo '		</tr>';
+			echo '	</thead>';
 
 			// echo '<tr id="result"></tr>';
 			
 			
 			while ($row = $result->fetch_assoc()) { // Get associative array row by row.
-				echo '	<tr id="result">';
+				echo '	<tr>';
 				echo '		<td id="passengerName"><a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a></td>';
 				echo '		<td id="homeDest">'.$row['homeDest'].'</td>';
 				echo '		<td id="cabinNumber">'.$row['cabinNumber'].'</td>'; 
@@ -174,7 +177,7 @@ $offset = ($currPage - 1) * $limit;
 				echo '	</tr>';
 			}
 			
-			echo "</table>";	
+			echo '	</table>';	
 
 	// Includes minimal header. Closes </body>, and closes </html>.
 	include("includes/footer.php"); 
