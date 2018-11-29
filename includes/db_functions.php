@@ -47,4 +47,11 @@
 		$number_regex = '/[^0-9]/';
 		return preg_match($number_regex, $value) === 1; 
 	}
+
+	//generates a random number between the entered values and checks if the entered value is 
+	//
+	function percentChance($chance){
+		$randPercent = mt_rand(0,99);
+		return $chance > $randPercent;
+	  }
 ?>
