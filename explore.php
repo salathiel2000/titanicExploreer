@@ -170,8 +170,14 @@ $offset = ($currPage - 1) * $limit;
 			while ($row = $result->fetch_assoc()) { // Get associative array row by row.
 				echo '	<tr>';
 				echo '		<td id="passengerName"><a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a></td>';
-				echo '		<td id="homeDest">'.$row['homeDest'].'</td>';
-				echo '		<td id="cabinNumber">'.$row['cabinNumber'].'</td>'; 
+				echo '		<td id="homeDest">';
+				if (!empty($row['homeDest'])) echo $row['homeDest'];
+				else echo 'Unknown';
+				echo '</td>';
+				echo '		<td id="cabinNumber">';
+								if (!empty($row['cabinNumber'])) echo $row['cabinNumber'];
+				else echo 'Unknown';
+				echo'</td>'; 
 				echo '		<td id="class">'.$row['class'].'</td>';
 				echo '	</tr>';
 			}

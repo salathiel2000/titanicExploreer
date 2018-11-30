@@ -6,7 +6,6 @@
 	if (!empty($_POST['logout']) || empty($_SESSION['valid_user'])) {
 	
 		$_SESSION['valid_user'] = array();
-
 		session_destroy(); 
 		echo 'header';
 		header("Location: login.php"); 
@@ -99,11 +98,11 @@
 
 		
 
-		 { // NOTE: checking for NULL might not work.
-			echo '<form action="logout.php" method="post">';
-			echo '<p><input type="submit" name="logout" value="Logout"></p>';
-			echo '</form>';
-		}
+		 
+	echo '<form action="logout.php" method="post">';
+	echo '<p><input type="submit" name="logout" value="Logout"></p>';
+	echo '</form>';
+		
 
 
 	}
