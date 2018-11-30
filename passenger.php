@@ -28,6 +28,26 @@
     //bind the results from the query to variables
     $stmt->bind_result($name, $gender, $age, $homeDest, $class, $cabin);
 
+    $checkIfExistsQuery = "SELECT * FROM favorites";
+    $checkIfExistsQuery .= " WHERE pid = ? AND emailAddress = ?"; 
+
+    //SOMETHING'S WRONG HERE
+
+    // //prepare the statement
+    // $stmt2 = $connection->prepare($checkIfExistsQuery); 
+    // //bind variables for product code and email to the query
+    // $stmt2->bind_param('is', $pid, $email); 
+   
+    // echo $connection->$error; 
+
+    // //only set email variable if the user is actually logged in
+    // if(isset($_SESSION['valid_user'])){
+    //     $email = $_SESSION['valid_user']; 
+    // }
+    // //execute the query
+    // $stmt2->execute(); 
+    // //store result in a variable
+    // $checkRes = $stmt2->get_result(); 
 ?>
 
 <?php 
@@ -57,8 +77,9 @@ if($stmt->fetch()){
 }
 
 //display button if user is logged in
+// if((isset($_SESSION['valid_user'])) && ($checkRes->num_rows == 0)){
 if(isset($_SESSION['valid_user'])){
-    echo "<a href=\"#\">Add to address book</a>";
+    echo "<a href=\"addToAddressBook.php?pid=".$pid."\">Add to address book</a>";
 }
 
 //have to add in functionality to check if passenger is already in address book 
