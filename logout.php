@@ -67,10 +67,12 @@
 
 				// echo '<tr id="result"></tr>';
 			
-			
+				$i = 0;
 				while ($row = $result->fetch_assoc()) { // Get associative array row by row.
 					echo '	<tr>';
-					echo '		<td id="passengerName"><a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a></td>';
+					echo '		<td id="passengerName"><a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a>';
+					if ($i == 0) echo ' (You)';
+					echo '</td>';
 					echo '		<td id="survived">';
 					if ($row['survived'] == 1) {
 						echo 'Survived';
@@ -89,6 +91,7 @@
 					}
 					echo '</td>';
 					echo '	</tr>';
+					$i += 1;
 				}
 			
 				echo '	</table>';	
