@@ -29,7 +29,7 @@
 
 //WHERE
 
-		$query .= " WHERE assignments.assignmentEmail = '". $_SESSION["valid_user"] . "'";
+		$query .= " WHERE assignments.emailAddress = '". $_SESSION["valid_user"] . "'";
 
 // UNION
 
@@ -46,7 +46,7 @@
 
 //WHERE
 
-		$query .= " WHERE favorites.favoritesEmail = '". $_SESSION["valid_user"] . "'";
+		$query .= " WHERE favorites.emailAddress = '". $_SESSION["valid_user"] . "'";
 //SUBMIT
 		echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
 		$result = db_query($query); // Send off query to msqli.
