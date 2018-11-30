@@ -114,7 +114,6 @@ for($i=1; $i<$pages+1; $i++){ // TO-DO: Limit number of pages if the number of r
 //which page are we currently on
 $offset = ($currPage - 1) * $limit; 
 
-	// Step 3: Process Query for Results
 //SELECT
 	$query = "SELECT ";
 	$query .= "passenger.pid, name, homeDest, class, cabinNumber, ";
