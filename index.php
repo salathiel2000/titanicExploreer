@@ -33,6 +33,7 @@
 			}
 
 			// Print table.
+			echo '<h3>Recent Members</h3>';
 			echo '<table>';
 			echo '	<thead>';
 			echo '		<tr>';
