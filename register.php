@@ -86,11 +86,13 @@
 
     if((count($error) == 0) && isset($_POST['submit'])){
         
-        $insertQuery = "INSERT INTO member (fName, lName, emailAddress, password, userAge, userGender, annualIncome) "; 
-        $insertQuery .= "VALUES (?, ?, ?, ?, ?, ?, ?)"; 
+        $insertQuery = "INSERT INTO member (fName, lName, emailAddress, password, userAge, userGender, annualIncome, creationDate) "; 
+        $insertQuery .= "VALUES (?, ?, ?, ?, ?, ?, ?, ?)"; 
+
+		$creationDate = date("Y-m-d H:i:s");
 
         $stmt = $connection->prepare($insertQuery); 
-        $stmt->bind_param('ssssisi', $fName, $lName, $email, $encrypted_pass, $age, $gender, $income); 
+        $stmt->bind_param('ssssisis', $fName, $lName, $email, $encrypted_pass, $age, $gender, $income, $creationDate); 
 		$encrypted_pass = password_hash($password1, PASSWORD_DEFAULT);
 		$stmt->execute(); 
 
