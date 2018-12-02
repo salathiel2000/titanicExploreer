@@ -52,34 +52,68 @@
 
 <?php 
 if($stmt->fetch()){
-    echo "  <h1>Passenger Card</h1>";
+
+	echo '<div class="ticket">';
+	echo '<div class="ticket-content">'; 
+
+	//echo '	<div class="ticket-title">';
+	//echo '	</div>'; 
+	echo '<div class="ticket-left-content">'; 
+
+	echo '	<div class="ticket-item">'; 
     echo"   <h2>Name</h2>";
     echo    $name;
-    echo"   <h2>Age</h2>"; 
-    echo    $age;
-    echo"   <h2>Gender</h2>"; 
-    echo    $gender; 
-    echo"   <h2>Home Destination</h2>"; 
-    echo    $homeDest;
-    echo"   <h2>Cabin</h2>"; 
-    echo    $cabin;
-    echo"   <h2>Class</h2>";
+	echo '	</div>'; 
 
-    //display class as their relevant strings based on the return
-    if($class == 1){
-        echo"   <p>First Class</p>";
-    } else if($class == 2){
-        echo"   <p>Second Class</p>"; 
-    } else if($class == 3){
-        echo"   <p>Third Class</p>"; 
-    }
+	echo '	<div class="ticket-item">'; 
+	echo"   <h2>Home Destination</h2>"; 
+    echo    $homeDest;
+	echo '	</div>'; 
+
+	echo '	<div class="ticket-double">'; 
+	echo '	<div class="ticket-item">'; 
+
+    echo '		<h2>Age</h2>'; 
+    echo $age;
+	echo '	</div>'; 
+
+	echo '	<div class="ticket-item">'; 
+
+    echo '		<h2>Gender</h2>'; 
+    echo $gender; 
+	echo '	</div>'; 
+
+	echo '	</div>'; 
+	echo '</div>'; 
+	echo '<div class="ticket-right-content">'; 
+	echo '	<div class="ticket-column">'; 
+
+			echo '	<div class="ticket-item">'; 
+				echo '<h2>Cabin</h2>'; 
+				echo $cabin;
+			echo '</div>';
+
+				echo '<div class="ticket-item">'; 
+					echo '<h2>Class</h2>';
+					//display class as their relevant strings based on the return
+					if($class == 1){
+						echo '<p>First Class</p>';
+					} else if($class == 2){
+						echo '<p>Second Class</p>'; 
+					} else if($class == 3){
+						echo '<p>Third Class</p>'; 
+					}
+				echo '</div>';
+			echo '</div>'; 
+		echo '</div>'; 
+	echo '</div>'; 
 
 }
 
 //display button if user is logged in
 // if((isset($_SESSION['valid_user'])) && ($checkRes->num_rows == 0)){
 if(isset($_SESSION['valid_user'])){
-    echo "<a href=\"addToAddressBook.php?pid=".$pid."\">Add to address book</a>";
+    echo '<a href="addToAddressBook.php?pid='.$pid.'" class="ticket-button">Add to address book</a>';
 }
 
 //have to add in functionality to check if passenger is already in address book 

@@ -84,3 +84,88 @@ th{
 	color: #fff;
 	background-color: #9c2b37;
 }
+
+.ticket {
+
+	margin: auto;
+    padding: 20px;
+    text-align: center;
+	width: 43%;
+	height: auto;
+	padding: 4em;
+	background-image: url("assets/ticket.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	max-width: auto;
+}
+
+.ticket-item h2 {
+	color: #9c2b37;
+    text-transform: uppercase;
+	font-size: 0.6em;
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+}
+.ticket-item {
+	font-size: 1.5em;
+    font-family: 'Sentinel-Bold'; 
+    font-weight: 700; 
+    font-style: normal; 
+}
+
+.ticket-content {
+	margin: 4em;
+	margin-top: 6em;
+
+	text-align: left;
+	display: flex;
+}
+
+.ticket-title {
+	
+}
+
+.ticket-left-content {
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+}
+
+.ticket-right-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.ticket-column {
+}
+
+.ticket-double {
+	margin: 0;
+	display: flex;
+	flex-direction: row;
+}
+.ticket-item {
+	margin: 0.5em 1em;
+}
+.ticket-button {
+	text-transform: uppercase;
+	background-color: #000000;
+	color: #ffffff;
+	padding: 1em;
+	font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+	text-decoration: none;
+
+}
+.ticket-button:hover {
+	text-transform: uppercase;
+	background-color: #9c2b37;
+	color: #ffffff;
+	padding: 1em;
+	font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+	text-decoration: none;
+}
