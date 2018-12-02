@@ -98,47 +98,14 @@
 
 $limit = 50; 
 
-// if(isset($_COOKIE['pages'])){
-// 	$pages = (int) $_COOKIE['pages']; 
-// }
-
 $pageNum = 27; 
 
-// if(isset($_COOKIE['pageNum'])){
-// 	$pageNum = (int) $_COOKIE['pageNum']; 
-// }
-
-// echo "COOKIE:$pageNum<br>"; 
-
-// $chooseNumber = "<select>"; 
-// for($i=1; $i < $pageNum+1; $i++){
-// 	$chooseNumber .= "<option>$i</option>"; 
-// }
-// $chooseNumber .= "</select>";
-
-// if(isset($_SESSION['pageNum'])){
-// 	echo "SESSION:".$_SESSION['pageNum']; 
-// }
-// echo $chooseNumber; 
 echo "<select id=\"chooseNumber\">";
 for($i=1; $i < 28; $i++){
 	echo "<option id=\"".$i."\">".$i."</option>";
 }
 echo "</select>";
 echo "<p id=\"pages\">".$pageNum."</p>"; 
-
-// //display number of pages 
-// for($i=1; $i<$pageNum+1; $i++){ // TO-DO: Limit number of pages if the number of results is lower than the maximum.
-// 	echo '<a href="explore.php?'.http_build_query(array_merge($_GET, array('pageNum'=> $i))).'">'.$i.' </a>'; // Revised line which adds a new URL parameter.
-// 	if($i>1 && isset($_GET['pageNum'])){
-// 		$currPage = (int) $_GET['pageNum']; 
-// 	} else {
-// 		$currPage = 1; 
-// 	}
-// }
- 
-//which page are we currently on
-// $offset = ($currPage - 1) * $limit; 
 
 //SELECT
 	$query = "SELECT ";
