@@ -10,6 +10,7 @@ if (isset($_SESSION['valid_user'])) {
 //SELECT
 	$query = "SELECT ";
 	$query .= "*";
+
 //FROM
 	$query .= " FROM assignments"; // Begin table selection.
 	$query .= " INNER JOIN member ON assignments.emailAddress = member.emailAddress";
@@ -18,10 +19,8 @@ if (isset($_SESSION['valid_user'])) {
 	$query .= " INNER JOIN cabin ON passenger.pid = cabin.pid";
 	
 //WHERE
-
 	$query .= " WHERE (true)"; // Just makes it so I don't have to check for a condition being the FIRST in a long chain.
 	$query .= " AND assignments.emailAddress = '". $_SESSION['valid_user'] . "'";
-		
 		
 //SUBMIT
 	echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.

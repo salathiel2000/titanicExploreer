@@ -35,13 +35,15 @@ if (isset($_SESSION['valid_user'])) {
 	$userGender = $row['userGender'];
 	$annualIncome = $row['annualIncome'];
 
+	echo $userGender;
+
 	echo '<h3>Edit Profile</h3>';
 			
 	echo '<div>';
-	echo '<p><label for="fName">First Name</label> <input name="fName" type="text"';
+	echo '<p><label for="fName">First Name</label> <input id="fName" name="fName" type="text"';
 	if (!empty($fName)) echo 'value="'.$fName.'"';
 	echo '> ';
-	echo '<label for="lName">Last Name</label> <input name="lName" type="text"';
+	echo '<label for="lName">Last Name</label> <input id="lName" name="lName" type="text"';
 	if (!empty($lName)) echo 'value="'.$lName.'"';
 
 	echo'></p>';
@@ -49,26 +51,26 @@ if (isset($_SESSION['valid_user'])) {
 
 	echo '<div>';
     echo '<p><label for="age">Age </label>';
-    echo '<input type="number" name="age" min="0" max="150" ';
+    echo '<input id="age" type="number" name="age" min="0" max="150" ';
 	if (!empty($userAge)) echo 'value="'.$userAge.'"';
 	echo '>';
 	echo '</div>';
 
 	echo '<div>';
     echo '<p><label for="income">Annual Income </label>';
-    echo '<input type="number" name="income" placeholder="$"';
+    echo '<input id="annualIncome" type="number" name="income" placeholder="$"';
 	if (!empty($annualIncome)) echo 'value="'.$annualIncome.'"';
 	echo '">';
 	echo '</div>';
 
 	echo '<fieldset>';
 	echo '<p><legend>Gender </legend>';
-	echo '<input type="radio" name="gender"';
-	if(isset($userGender) && $userGender == "male") { echo "checked";}
-	echo 'value="male" checked> Male<br>';
-	echo '<input type="radio" name="gender"';
-	if(isset($userGender) && $userGender == "female") { echo "checked";}
-	echo 'value="female"> Female<br>';
+	echo '<input id="male" type="radio" name="gender" value="male"';
+	if(!empty($userGender) && $userGender == "male") { echo "checked";}
+	echo '> Male<br>';
+	echo '<input id="female" type="radio" name="gender" value="female"';
+	if(!empty($userGender) && $userGender == "female") { echo "checked";}
+	echo '> Female<br>';
 	echo '</fieldset>';
 
 
