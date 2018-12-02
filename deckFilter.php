@@ -59,13 +59,13 @@
     while ($row = $result->fetch_assoc()) { // Get associative array row by row.
         $output =  '<tr>
                     <td id="passengerName"><a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a></td>
-                    <td id="homeDest">';
-                    if (!empty($row['homeDest'])) $output .= $row['homeDest'];
-                    else $output .= 'Unknown';          
+                    <td id="homeDest"';
+                    if (!empty($row['homeDest'])) $output .= '>'.$row['homeDest'];
+				    else $output .= ' class="unknown">Unknown';
         $output .=  '</td>
-                    <td id="cabinNumber">';
-                    if (!empty($row['cabinNumber'])) $output .= $row['cabinNumber'];
-				    else $output .= 'Unknown';
+                    <td id="cabinNumber"';
+                    if (!empty($row['cabinNumber'])) $output .= '>'.$row['cabinNumber'];
+				    else $output .= ' class="unknown">Unknown';
         $output .=  '</td>
                     <td id="class">'.$row['class'].'</td>
                     </tr>';

@@ -202,7 +202,7 @@ echo "<p id=\"pages\">".$pageNum."</p>";
 				else echo ' class="unknown">Unknown';
 				echo '</td>';
 				echo '		<td id="cabinNumber"';
-								if (!empty($row['cabinNumber'])) echo '>'.$row['cabinNumber'];
+				if (!empty($row['cabinNumber'])) echo '>'.$row['cabinNumber'];
 				else echo ' class="unknown">Unknown';
 				echo'</td>'; 
 				echo '		<td id="class">'.$row['class'].'</td>';
