@@ -37,22 +37,36 @@
     $total = $subresult->num_rows; 
     $limit = 50; 
     $pages = ceil($total / $limit);
-    setCookie("pages", $pages, time() + (86400 * 30), "/"); 
+    $currPage = 1;
+    // setCookie("pages", $pages, time() + (86400 * 30), "/"); 
 
-    if(isset($_GET['pageNum'])){
-        $pageNum = (int) $_GET['pageNum']; 
-        setCookie("pageNum", $pageNum, time() + (86400 * 30), "/");
+    // if(isset($_GET['pageNum'])){
+    //     $pageNum = (int) $_GET['pageNum']; 
+    //     $_SESSION['pageNum'] = $pageNum;
+    // }
+
+    //which page are we currently on
+    if(isset($_GET['currPage'])){
+        $currPage = $_GET['currPage']; 
     }
+    //calculate offset for pagination
+    $offset = ($currPage - 1) * $limit; 
     
-    $query = "SELECT * FROM ($subquery) AS explore LIMIT $limit OFFSET $pages"; 
+    $query = "SELECT * FROM ($subquery) AS explore LIMIT $limit OFFSET $offset"; 
     $result = db_query($query); 
     $outputArr = []; 
 
     while ($row = $result->fetch_assoc()) { // Get associative array row by row.
         $output =  '<tr>
                     <td id="passengerName"><a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a></td>
-                    <td id="homeDest">'.$row['homeDest'].'</td>
-                    <td id="cabinNumber">'.$row['cabinNumber'].'</td>
+                    <td id="homeDest">';
+                    if (!empty($row['homeDest'])) $output .= $row['homeDest'];
+                    else $output .= 'Unknown';          
+        $output .=  '</td>
+                    <td id="cabinNumber">';
+                    if (!empty($row['cabinNumber'])) $output .= $row['cabinNumber'];
+				    else $output .= 'Unknown';
+        $output .=  '</td>
                     <td id="class">'.$row['class'].'</td>
                     </tr>';
 
