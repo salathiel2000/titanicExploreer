@@ -86,25 +86,25 @@
 
     if((count($error) == 0) && isset($_POST['submit'])){
         
-        $insertQuery = "INSERT INTO member (fName, lName, emailAddress, password, userAge, userGender, annualIncome) "; 
-        $insertQuery .= "VALUES (?, ?, ?, ?, ?, ?, ?)"; 
+        $insertQuery = "INSERT INTO member (fName, lName, emailAddress, password, userAge, userGender, annualIncome, creationDate, userClass) "; 
+        $insertQuery .= "VALUES (?, ?, ?, ?, ?, ?, ?, ?, 3)"; 
+
+		$creationDate = date("Y-m-d H:i:s");
 
         $stmt = $connection->prepare($insertQuery); 
-        $stmt->bind_param('ssssisi', $fName, $lName, $email, $encrypted_pass, $age, $gender, $income); 
+        $stmt->bind_param('ssssisis', $fName, $lName, $email, $encrypted_pass, $age, $gender, $income, $creationDate); 
 		$encrypted_pass = password_hash($password1, PASSWORD_DEFAULT);
-		$stmt->execute(); 
 
-        // if($stmt->execute()){
-    //         $_SESSION['loggedin'] = true;
-    //         $_SESSION['email'] = $email; 
-    //         $callback_url = "/srwells/Assignments/A4/showmodels.php"; 
-    //         if(isset($_SESSION['callback_url'])){
-    //             $callback_url = $_SESSION['callback_url']; 
-    //         }
-    //         header("Location: http://".$_SERVER['HTTP_HOST'].$callback_url); 
-    //     } else {
-    //         echo "Error: </br>".$db->error; 
-    //     }
+        if($stmt->execute()){
+           $_SESSION['valid_user'] = $email; 
+             $callback_url = "/titanicExplorer/index.php"; 
+             if(isset($_SESSION['callback_url'])){
+                 $callback_url = $_SESSION['callback_url']; 
+             }
+             header("Location: http://".$_SERVER['HTTP_HOST'].$callback_url); 
+         } else {
+             echo "Error: </br>".$connection->error; 
+         }
 
 		$stmt->close(); 
 		$connection->close(); 

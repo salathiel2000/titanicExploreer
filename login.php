@@ -25,9 +25,6 @@
 
 		// Establish query. Returns hashed + salted password, so even if the user sees it in plain text, they shouldn't be able to crack it.
 		$query = "SELECT password FROM member WHERE emailAddress = ?";
-		echo $query."<br>";
-		echo $loginEmail."<br>";
-		echo $loginPassword."<br>";
 		// Put statement into preparation zone.
 		$stmt = $connection->prepare($query);
 
@@ -42,8 +39,7 @@
 		
 		// If the result exists, and is correct.
 		if ($stmt->fetch()) {
-			echo $loginPassword." =? ".$hashWord." is "; 
-			if (password_verify($loginPassword, $hashWord)) echo "true"; else echo "false";
+		
 			if (password_verify($loginPassword, $hashWord)) {
 				// Authenticate the loginEmail.
 				$authenticated = $loginEmail;
