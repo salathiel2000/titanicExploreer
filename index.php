@@ -68,16 +68,22 @@
 ?>
 
 <h1>Welcome Aboard</h1>
-<h2>Let's meet the crew<h2>
-<div>
+<h2>Let's meet the crew</h2>
+<div id="crewImg">
     <div id="leftImg">
-
+        <img src="includes/assets/johnSmith_framed.png">
+        <h3>CAPTAIN</h3>
+        <h4>John Edward Smith</h4>
     </div>
     <div id="centerImg">
-    
+        <img src="includes/assets/henryTingleWilde_framed.png">
+        <h3>CHIEF FIRST OFFICER</h3>
+        <h4>Henry Tingle Wilde</h4>
     </div>
     <div id="rightImg">
-    
+        <img src="includes/assets/williamMurdoch_framed.png">
+        <h3>FIRST OFFICER</h3>
+        <h4>William McMaster Murdoch</h4>
     </div>
 </div>
 

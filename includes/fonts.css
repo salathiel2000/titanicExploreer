@@ -1,0 +1,123 @@
+/* Sentinel */
+
+@font-face{
+    font-family: 'Sentinel-Black'; 
+    font-weight: 900; 
+    font-style: normal;
+    src: url("includes/fonts/Sentinel/sentinel-black-webfont.eot") format('eot');
+    src: url("includes/fonts/Sentinel/sentinel-black-webfont.svg") format('svg');
+    src: url("includes/fonts/Sentinel/sentinel-black-webfont.ttf") format('ttf'); 
+    src: url("includes/fonts/Sentinel/sentinel-black-webfont.woff") format('woff'); 
+}
+
+@font-face{
+    font-family: 'Sentinel-BlackItalic'; 
+    font-weight: 900; 
+    font-style: italic;
+    src: url("includes/fonts/Sentinel/sentinel-blackitalic-webfont.eot") format('eot');
+    src: url("includes/fonts/Sentinel/sentinel-blackitalic-webfont.svg") format('svg');
+    src: url("includes/fonts/Sentinel/sentinel-blackitalic-webfont.ttf") format('ttf'); 
+    src: url("includes/fonts/Sentinel/sentinel-blackitalic-webfont.woff") format('woff'); 
+}
+
+@font-face{
+    font-family: 'Sentinel-Bold'; 
+    font-weight: 700; 
+    font-style: normal; 
+    src: url("includes/fonts/Sentinel/sentinel-bold-webfont.eot") format('eot');
+    src: url("includes/fonts/Sentinel/sentinel-bold-webfont.svg") format('svg');
+    src: url("includes/fonts/Sentinel/sentinel-bold-webfont.ttf") format('ttf'); 
+    src: url("includes/fonts/Sentinel/sentinel-bold-webfont.woff") format('woff'); 
+}
+
+@font-face{
+    font-family: 'Sentinel-BoldItalic'; 
+    font-weight: 700; 
+    font-style: italic; 
+    src: url("includes/fonts/Sentinel/sentinel-bolditalic-webfont.eot") format('eot');
+    src: url("includes/fonts/Sentinel/sentinel-bolditalic-webfont.svg") format('svg');
+    src: url("includes/fonts/Sentinel/sentinel-bolditalic-webfont.ttf") format('ttf'); 
+    src: url("includes/fonts/Sentinel/sentinel-bolditalic-webfont.woff") format('woff'); 
+}
+
+@font-face{
+    font-family: 'Sentinel-Book'; 
+    font-weight: 500; 
+    font-style: normal; 
+    src: url("includes/fonts/Sentinel/sentinel-book-webfont.eot") format('eot');
+    src: url("includes/fonts/Sentinel/sentinel-book-webfont.svg") format('svg');
+    src: url("includes/fonts/Sentinel/sentinel-book-webfont.ttf") format('ttf'); 
+    src: url("includes/fonts/Sentinel/sentinel-book-webfont.woff") format('woff'); 
+}
+
+@font-face{
+    font-family: 'Sentinel-BookItalic'; 
+    font-weight: 500; 
+    font-style: italic; 
+    src: url("includes/fonts/Sentinel/sentinel-bookitalic-webfont.eot") format('eot');
+    src: url("includes/fonts/Sentinel/sentinel-bookitalic-webfont.svg") format('svg');
+    src: url("includes/fonts/Sentinel/sentinel-bookitalic-webfont.ttf") format('ttf'); 
+    src: url("includes/fonts/Sentinel/sentinel-bookitalic-webfont.woff") format('woff'); 
+}
+
+@font-face{
+    font-family: 'Sentinel-Light'; 
+    font-weight: 500; 
+    font-style: normal; 
+    src: url("includes/fonts/Sentinel/sentinel-light-webfont.eot") format('eot');
+    src: url("includes/fonts/Sentinel/sentinel-light-webfont.svg") format('svg');
+    src: url("includes/fonts/Sentinel/sentinel-light-webfont.ttf") format('ttf'); 
+    src: url("includes/fonts/Sentinel/sentinel-light-webfont.woff") format('woff'); 
+}
+
+@font-face{
+    font-family: 'Sentinel-LightItalic'; 
+    font-weight: 500; 
+    font-style: italic; 
+    src: url("includes/fonts/Sentinel/sentinel-lightitalic-webfont.eot") format('eot');
+    src: url("includes/fonts/Sentinel/sentinel-lightitalic-webfont.svg") format('svg');
+    src: url("includes/fonts/Sentinel/sentinel-lightitalic-webfont.ttf") format('ttf'); 
+    src: url("includes/fonts/Sentinel/sentinel-lightitalic-webfont.woff") format('woff'); 
+}
+
+/* Avenir */
+
+@font-face{
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+    src: url("includes/fonts/Avenir Next/avenir-next-bold.eot") format('eot');
+    src: url("includes/fonts/Avenir Next/avenir-next-bold.svg") format('svg');
+    src: url("includes/fonts/Avenir Next/avenir-next-bold.ttf") format('ttf');
+    src: url("includes/fonts/Avenir Next/avenir-next-bold.woff") format('woff');
+}
+
+@font-face{
+    font-family: 'Avenir-Next-Italic'; 
+    font-weight: 500; 
+    font-style: italic;
+    src: url("includes/fonts/Avenir Next/avenir-next-italic.eot") format('eot');
+    src: url("includes/fonts/Avenir Next/avenir-next-italic.svg") format('svg');
+    src: url("includes/fonts/Avenir Next/avenir-next-italic.ttf") format('ttf');
+    src: url("includes/fonts/Avenir Next/avenir-next-italic.woff") format('woff');
+}
+
+@font-face{
+    font-family: 'Avenir-Next-Regular'; 
+    font-weight: 500; 
+    font-style: normal;
+    src: url("includes/fonts/Avenir Next/avenir-next-regular.eot") format('eot');
+    src: url("includes/fonts/Avenir Next/avenir-next-regular.svg") format('svg');
+    src: url("includes/fonts/Avenir Next/avenir-next-regular.ttf") format('ttf');
+    src: url("includes/fonts/Avenir Next/avenir-next-regular.woff") format('woff');
+}
+
+@font-face{
+    font-family: 'Avenir-Next-Thin'; 
+    font-weight: 300; 
+    font-style: normal;
+    src: url("includes/fonts/Avenir Next/avenir-next-thin.eot") format('eot');
+    src: url("includes/fonts/Avenir Next/avenir-next-thin.svg") format('svg');
+    src: url("includes/fonts/Avenir Next/avenir-next-thin.ttf") format('ttf');
+    src: url("includes/fonts/Avenir Next/avenir-next-thin.woff") format('woff');
+}

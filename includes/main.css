@@ -1,3 +1,11 @@
+h1{
+    /* font-family: 'Sentinel-Light', serif;  */
+    font-family: 'Sentinel-LightItalic', serif; 
+    font-weight: 300; 
+    font-style: italic; 
+}
+
+
 fieldset{
     border: none; 
     padding: 0;
