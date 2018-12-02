@@ -18,7 +18,7 @@ if (isset($_SESSION['valid_user'])) {
 	$query .= " AND member.emailAddress = '". $_SESSION['valid_user'] . "'";
 		
 	
-	//SUBMIT
+//SUBMIT
 	echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
 		
 	$result = db_query($query); // Send off query to msqli.

@@ -5,7 +5,7 @@
 
 	db_connect(); 
 
-	$fName = $lName = $email = $password1 = $password2 = $age = $income = $gender = ""; 
+	$fName = $lName = $email = $password1 = $password2 = $age = $income = $gender = $class = ""; 
 	$error = array(); 
 
 	if(isset($_POST['submit'])){
@@ -82,17 +82,88 @@
 		}
 
 		$gender = $_POST['gender']; 
-    }
+    
+		$class = 3; // Third class.
+		if ($income > 12000) {
+			$class -= 1; // Second class.
+			if ($income > 40000) {
+				$class -= 1; // First class.
+			}
+		}
+
+	}
 
     if((count($error) == 0) && isset($_POST['submit'])){
-        
-        $insertQuery = "INSERT INTO member (fName, lName, emailAddress, password, userAge, userGender, annualIncome, creationDate, userClass) "; 
-        $insertQuery .= "VALUES (?, ?, ?, ?, ?, ?, ?, ?, 3)"; 
+
+		$query = "SELECT";
+		$query .= " passenger.pid";
+		$query .= " FROM passenger"; // Begin table selection.
+		$query .= " INNER JOIN ticket ON passenger.pid = ticket.pid";	
+		$query .= " WHERE NOT EXISTS (SELECT * FROM assignments WHERE assignments.pid = passenger.pid)";
+		$query .= " AND ticket.class = '". $class ."'";
+		$query .= " AND (ABS(passenger.age - ". $age .") < 5)";
+		$query .= " AND passenger.gender = '".$gender."'";
+		$query .= " AND passenger.pid >= RAND() * ( SELECT MAX(passenger.pid ) FROM passenger )";
+		$query .= " ORDER BY passenger.pid LIMIT 1";
+
+		echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
+		
+		$result = db_query($query); // Send off query to msqli.
+        if (!$result) { 
+			$query = "SELECT";
+			$query .= " passenger.pid";
+			$query .= " FROM passenger"; // Begin table selection.
+			$query .= " INNER JOIN ticket ON passenger.pid = ticket.pid";	
+			$query .= " WHERE NOT EXISTS (SELECT * FROM assignments WHERE assignments.pid = passenger.pid)";
+			$query .= " AND ticket.class = '". $class ."'";
+			$query .= " AND passenger.gender = '".$gender."'";
+			$query .= " AND passenger.pid >= RAND() * ( SELECT MAX(passenger.pid ) FROM passenger )";
+			$query .= " ORDER BY passenger.pid LIMIT 1";
+			$result = db_query($query); // Send off query to msqli.
+			if (!$result) {
+				$query = "SELECT";
+				$query .= " passenger.pid";
+				$query .= " FROM passenger"; // Begin table selection.
+				$query .= " INNER JOIN ticket ON passenger.pid = ticket.pid";	
+				$query .= " WHERE NOT EXISTS (SELECT * FROM assignments WHERE assignments.pid = passenger.pid)";
+				$query .= " AND ticket.class = '". $class ."'";
+				$query .= " AND passenger.pid >= RAND() * ( SELECT MAX(passenger.pid ) FROM passenger )";
+				$query .= " ORDER BY passenger.pid LIMIT 1";
+				$result = db_query($query); // Send off query to msqli.
+				if (!$result) {
+				$query = "SELECT";
+				$query .= " passenger.pid";
+				$query .= " FROM passenger"; // Begin table selection.
+				$query .= " INNER JOIN ticket ON passenger.pid = ticket.pid";	
+				$query .= " WHERE NOT EXISTS (SELECT * FROM assignments WHERE assignments.pid = passenger.pid)";
+				$query .= " AND passenger.pid >= RAND() * ( SELECT MAX(passenger.pid ) FROM passenger )";
+				$query .= " ORDER BY passenger.pid LIMIT 1";
+					$result = db_query($query); // Send off query to msqli.
+					if (!$result) {
+						die("Error: All passengers are assigned!");
+					}
+				}
+			}
+		}
+		$row = $result->fetch_assoc();
+		mysqli_free_result($result);
+		$insertQuery = "INSERT INTO assignments (emailAddress, pid) ";
+		$insertQuery .= "VALUES (?, ?)";
+		$stmt = $connection->prepare($insertQuery); 
+        $stmt->bind_param('si', $email, $row['pid']);
+		$stmt->execute();
+		$stmt->close(); 
+
+        $insertQuery = "INSERT INTO member (fName, lName, emailAddress, password, userAge, userGender, annualIncome, creationDate, userClass) ";
+
+
+
+        $insertQuery .= "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
 
 		$creationDate = date("Y-m-d H:i:s");
 
         $stmt = $connection->prepare($insertQuery); 
-        $stmt->bind_param('ssssisis', $fName, $lName, $email, $encrypted_pass, $age, $gender, $income, $creationDate); 
+        $stmt->bind_param('ssssisisi', $fName, $lName, $email, $encrypted_pass, $age, $gender, $income, $creationDate, $class); 
 		$encrypted_pass = password_hash($password1, PASSWORD_DEFAULT);
 
         if($stmt->execute()){
