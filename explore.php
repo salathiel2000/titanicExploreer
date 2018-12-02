@@ -20,9 +20,6 @@
 	require_once("includes/pagination.php"); //Include pagination functions.
 ?>
 
-<?php
-
-?>
 
 <form action="explore.php" method="get">
 	<header>
