@@ -1,8 +1,9 @@
 h1{
     /* font-family: 'Sentinel-Light', serif;  */
-    font-family: 'Sentinel-LightItalic', serif; 
-    font-weight: 300; 
-    font-style: italic; 
+    /* font-family: 'Sentinel-LightItalic', serif;  */
+    font-family: 'Courier', monospace; 
+    font-weight: 500; 
+    font-style: normal; 
 }
 
 

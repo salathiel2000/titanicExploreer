@@ -121,3 +121,27 @@
     src: url("includes/fonts/Avenir Next/avenir-next-thin.ttf") format('ttf');
     src: url("includes/fonts/Avenir Next/avenir-next-thin.woff") format('woff');
 }
+
+@font-face{
+    font-family: 'Courier-Bold'; 
+    font-weight: 700; 
+    font-style: normal;
+    src: url("includes/fonts/Courier/courier-bold-webfont.woff") format('woff');
+    src: url("includes/fonts/Courier/courier-bold-webfont.woff2") format('woff2');   
+}
+
+@font-face{
+    font-family: 'Courier-0blique'; 
+    font-weight: 500; 
+    font-style: italic;
+    src: url("includes/fonts/Courier/courier-oblique-webfont.woff") format('woff');
+    src: url("includes/fonts/Courier/courier-oblique-webfont.woff2") format('woff2');   
+}
+
+@font-face{
+    font-family: 'Courier'; 
+    font-weight: 500; 
+    font-style: normal;
+    src: url("includes/fonts/Courier/courier-webfont.woff") format('woff');
+    src: url("includes/fonts/Courier/courier-webfont.woff2") format('woff2');   
+}
