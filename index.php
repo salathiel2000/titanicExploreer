@@ -65,8 +65,24 @@
 	} 
 	else
 	{
-		
+?>
 
+<h1>Welcome Aboard</h1>
+<h2>Let's meet the crew<h2>
+<div>
+    <div id="leftImg">
+
+    </div>
+    <div id="centerImg">
+    
+    </div>
+    <div id="rightImg">
+    
+    </div>
+</div>
+
+
+<?php
 		echo '<Insert Crew>';
 		db_connect(); // Quick connect function.
 		//echo print_r($_SESSION['valid_user']);
