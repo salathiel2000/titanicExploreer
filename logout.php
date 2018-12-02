@@ -11,42 +11,39 @@
 		header("Location: login.php"); 
 	}
 
-
-
-
 	if ($_SESSION['valid_user'] != null) {
 		db_connect(); // Quick connect function.
 		//echo print_r($_SESSION['valid_user']);
-//SELECT
+		//SELECT
 		$query = "SELECT ";
 		$query .= "*, ";
 	
-//FROM
+		//FROM
 		$query = substr($query, 0, -2); // Remove last comma.
 		$query .= " FROM assignments"; // Begin table selection.
 		$query .= " INNER JOIN passenger ON assignments.pid = passenger.pid";
 
-//WHERE
+		//WHERE
 
 		$query .= " WHERE assignments.emailAddress = '". $_SESSION["valid_user"] . "'";
 
-// UNION
+		// UNION
 
 		$query .= " UNION";
 
-//SELECT
+		//SELECT
 		$query .= " SELECT ";
 		$query .= "*, ";
 	
-//FROM
+		//FROM
 		$query = substr($query, 0, -2); // Remove last comma.
 		$query .= " FROM favorites"; // Begin table selection.
 		$query .= " INNER JOIN passenger ON favorites.pid = passenger.pid";
 
-//WHERE
+		//WHERE
 
 		$query .= " WHERE favorites.emailAddress = '". $_SESSION["valid_user"] . "'";
-//SUBMIT
+		//SUBMIT
 		echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
 		$result = db_query($query); // Send off query to msqli.
 
@@ -94,10 +91,6 @@
 				}
 			
 				echo '	</table>';	
-
-
-		
-
 		 
 	echo '<form action="logout.php" method="post">';
 	echo '<p><input type="submit" name="logout" value="Logout"></p>';

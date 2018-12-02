@@ -33,7 +33,7 @@
 
     //SOMETHING'S WRONG HERE
 
-    // //prepare the statement
+    // //prepare the statemen
     // $stmt2 = $connection->prepare($checkIfExistsQuery); 
     // //bind variables for product code and email to the query
     // $stmt2->bind_param('is', $pid, $email); 
