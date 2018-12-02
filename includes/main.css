@@ -1,9 +1,72 @@
-h1{
-    /* font-family: 'Sentinel-Light', serif;  */
-    /* font-family: 'Sentinel-LightItalic', serif;  */
-    font-family: 'Courier', monospace; 
-    font-weight: 500; 
+body{
+    margin: 0; 
+}
+
+#crew::after{
+    content : ""; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    background: url("assets/titanic_grain.jpg"); 
+    opacity: 0.15;
+    width: 100vw; 
+    height: 100vh; 
+}
+
+#crew h1{
+    font-family:  'Avenir-Next-Bold', sans-serif; 
+    font-weight: 900; 
+    font-style: normal;
+    font-size: 2rem;
+    color: #9C2B37; 
+    letter-spacing: 5px;
+    text-align: center; 
+    margin-bottom: 0;
+}
+
+#crew h2{
+    font-family: 'Sentinel-Medium', serif; 
+    font-weight: 600; 
     font-style: normal; 
+    font-size: 1.5rem;
+    color: #000; 
+    text-align: center; 
+    margin-top: 0;
+}
+
+#crewImg{
+    display: flex; 
+    justify-content: space-between; 
+    margin: 2rem 7%; 
+}
+
+.crewImgChild{
+    width: 27%; 
+}
+
+.crewImgChild h3{
+    font-family:  'Avenir-Next-Bold', sans-serif; 
+    font-weight: 900; 
+    font-style: normal;
+    font-size: 1rem;
+    letter-spacing: 1.6px; 
+    color: #9C2B37; 
+    text-align: center; 
+    margin-bottom: 0;
+}
+
+.crewImgChild h4{
+    font-family: 'Sentinel-Medium', serif; 
+    font-weight: 600; 
+    font-style: normal; 
+    font-size: 1.5rem;
+    color: #000; 
+    text-align: center; 
+    margin-top: 0.5rem;
+}
+
+.crewImgChild img{
+    width: 100%; 
 }
 
 
