@@ -80,6 +80,16 @@
     src: url("fonts/Sentinel/sentinel-lightitalic-webfont.woff") format('woff'); 
 }
 
+@font-face{
+    font-family: 'Sentinel-Medium'; 
+    font-weight: 600; 
+    font-style: normal; 
+    src: url("fonts/Sentinel/sentinel-medium-webfont.eot") format('eot');
+    src: url("fonts/Sentinel/sentinel-medium-webfont.svg") format('svg');
+    src: url("fonts/Sentinel/sentinel-medium-webfont.ttf") format('ttf'); 
+    src: url("fonts/Sentinel/sentinel-medium-webfont.woff") format('woff'); 
+}
+
 /* Avenir */
 
 @font-face{
