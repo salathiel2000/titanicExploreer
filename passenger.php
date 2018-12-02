@@ -113,7 +113,7 @@ if($stmt->fetch()){
 //display button if user is logged in
 // if((isset($_SESSION['valid_user'])) && ($checkRes->num_rows == 0)){
 if(isset($_SESSION['valid_user'])){
-    echo '<a href=\"addToAddressBook.php?pid=".$pid."\" class="ticket-button">Add to address book</a>';
+    echo '<a href="addToAddressBook.php?pid='.$pid.'" class="ticket-button">Add to address book</a>';
 }
 
 //have to add in functionality to check if passenger is already in address book 

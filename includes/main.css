@@ -27,7 +27,7 @@ th{
 	margin: auto;
     padding: 20px;
     text-align: center;
-	width: 40%;
+	width: 43%;
 	height: auto;
 	padding: 4em;
 	background-image: url("assets/ticket.png");
@@ -37,13 +37,18 @@ th{
 }
 
 .ticket-item h2 {
-	font-size: 1em;
+	color: #9c2b37;
+    text-transform: uppercase;
+	font-size: 0.6em;
     font-family: 'Avenir-Next-Bold'; 
     font-weight: 900; 
     font-style: normal;
 }
 .ticket-item {
-
+	font-size: 1.5em;
+    font-family: 'Sentinel-Bold'; 
+    font-weight: 700; 
+    font-style: normal; 
 }
 
 .ticket-content {
@@ -59,7 +64,7 @@ th{
 }
 
 .ticket-left-content {
-	width: 70%;
+	width: 60%;
 	display: flex;
 	flex-direction: column;
 }
@@ -73,10 +78,31 @@ th{
 }
 
 .ticket-double {
-	margin: 1em 0;
+	margin: 0;
 	display: flex;
 	flex-direction: row;
 }
 .ticket-item {
-	margin: 0 1em;
+	margin: 0.5em 1em;
+}
+.ticket-button {
+	text-transform: uppercase;
+	background-color: #000000;
+	color: #ffffff;
+	padding: 1em;
+	font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+	text-decoration: none;
+
+}
+.ticket-button:hover {
+	text-transform: uppercase;
+	background-color: #9c2b37;
+	color: #ffffff;
+	padding: 1em;
+	font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+	text-decoration: none;
 }
