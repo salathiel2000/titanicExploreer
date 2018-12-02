@@ -12,3 +12,51 @@ th{
 	color: #fff;
 	background-color: #9c2b37;
 }
+
+.ticket {
+	margin: auto;
+    padding: 20px;
+    text-align: center;
+	width: 40%;
+	height: auto;
+	padding: 4em;
+	background-image: url("assets/ticket.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	max-width: auto;
+}
+
+.ticket-content {
+	margin: 4em;
+	margin-top: 6em;
+
+	text-align: left;
+	display: flex;
+}
+
+.ticket-title {
+	
+}
+
+.ticket-left-content {
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+}
+
+.ticket-right-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.ticket-column {
+}
+
+.ticket-double {
+	margin: 1em 0;
+	display: flex;
+	flex-direction: row;
+}
+.ticket-item {
+	margin: 0 1em;
+}
