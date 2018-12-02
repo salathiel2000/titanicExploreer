@@ -22,6 +22,7 @@ th{
 }
 
 .ticket {
+
 	margin: auto;
     padding: 20px;
     text-align: center;
@@ -32,6 +33,16 @@ th{
 	background-size: contain;
 	background-repeat: no-repeat;
 	max-width: auto;
+}
+
+.ticket-item h2 {
+	font-size: 1em;
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+}
+.ticket-item {
+
 }
 
 .ticket-content {
