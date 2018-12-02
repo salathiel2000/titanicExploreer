@@ -7,3 +7,8 @@ fieldset{
 th{
     text-align: left; 
 }
+
+.unknown {
+	color: #fff;
+	background-color: #A00;
+}
