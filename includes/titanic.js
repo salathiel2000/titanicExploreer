@@ -7,10 +7,6 @@ $(document).ready(function(){
     var currPage = 1; 
     var myUrl = "deckFilter.php?search="+search+"&filterDeck="+filterDeck+"&filterClass="+filterClass+"&pageNum="+pageNum+"&currPage="+currPage; 
 
-    $('#closeTicket').click(function(){
-        console.log('hi');
-    }); 
-
     $("tbody").attr("id", "result");
 
     // AJAX for filtering the deck 
@@ -112,31 +108,99 @@ $(document).ready(function(){
         });
     });
 
-	$('.manifest-table').on('click', '.row-listener', function(event){
+	//AJAX for modifying profile
+    $('#result').on('click', '#editProfile', function(event){
         event.preventDefault(); // Prevents default action of event being triggered.
-		console.log("Opening...");
-		var pid = $(this).attr("id");
-		var myUrl = "includes/ticketModal.php";
-
-        $.post(myUrl, { ticketPid: pid }).done(function(data, status) {
+		console.log("Editing profile...");
+        var myUrl = "includes/editProfile.php";
+        $.post(myUrl, function(data, status) {
 			
             if(status == "success"){
-                $("#resulting-ticket").html(data); 
+                $("#result").html(data); 
                 //console.log("data:"+data);      
             }
         });
     });
-		$('.ab-table').on('click', '.row-listener', function(event){
+
+	$('.manifest-table').on('click', '.row-listener', function(event){
         event.preventDefault(); // Prevents default action of event being triggered.
 		console.log("Opening...");
 		var pid = $(this).attr("id");
-		var myUrl = "includes/ticketModal.php";
+        var myUrl = "includes/ticketModal.php";
+        
+        $('html, body').css({
+            overflow: 'hidden',
+            height: '100%'
+        }); 
 
         $.post(myUrl, { ticketPid: pid }).done(function(data, status) {
 			
             if(status == "success"){
                 $("#resulting-ticket").html(data); 
-                //console.log("data:"+data);      
+                //console.log("data:"+data);   
+                $("#modal").click(function(){
+                    $(".ticket").hide(); 
+                    $("#modal").hide(); 
+                    $('html, body').css({
+                        overflow: 'auto',
+                        height: '100%'
+                    }); 
+                }); 
+            }
+        });
+    });
+
+    $('.ab-table').on('click', '.row-listener', function(event){
+        event.preventDefault(); // Prevents default action of event being triggered.
+		console.log("Opening...");
+		var pid = $(this).attr("id");
+        var myUrl = "includes/ticketModal.php";
+
+        $('html, body').css({
+            overflow: 'hidden',
+            height: '100%'
+        }); 
+
+        $.post(myUrl, { ticketPid: pid }).done(function(data, status) {
+			
+            if(status == "success"){
+                $("#resulting-ticket").html(data); 
+                //console.log("data:"+data);  
+                $("#modal").click(function(){
+                    $(".ticket").hide(); 
+                    $("#modal").hide(); 
+                    $('html, body').css({
+                        overflow: 'auto',
+                        height: '100%'
+                    }); 
+                });     
+            }
+        });
+    });
+
+    $('.lobbyNames').on('click', '.individualLink', function(event){
+        event.preventDefault(); // Prevents default action of event being triggered.
+		console.log("Opening...");
+		var pid = $(this).attr("id");
+        var myUrl = "includes/ticketModal.php";
+        
+        $('html, body').css({
+            overflow: 'hidden',
+            height: '100%'
+        }); 
+        $.post(myUrl, { ticketPid: pid }).done(function(data, status) {
+			
+            if(status == "success"){
+                $("#resulting-ticket").html(data); 
+                //console.log("data:"+data);   
+                $("#modal").click(function(){
+                    $(".ticket").hide(); 
+                    $("#modal").hide(); 
+                    $('html, body').css({
+                        overflow: 'auto',
+                        height: '100%'
+                    }); 
+                }); 
             }
         });
     });
@@ -146,20 +210,6 @@ $(document).ready(function(){
 	var incomeEdit;
 	var ageEdit;
 	var genderEdit;
-
-	//AJAX for modifying profile
-    $('#result').on('click', '#editProfile', function(event){
-        event.preventDefault(); // Prevents default action of event being triggered.
-		console.log("Editing profile...");
-        var myUrl = "includes/editProfile.php";
-        $.post(myUrl, function(data, status) {
-			
-            if(status == "success"){
-                $("#bottom-half").html(data); 
-                //console.log("data:"+data);      
-            }
-        });
-    });
 
 	//AJAX for submitting modified profile
     $('#result').on('click','#saveProfile', function(event){
@@ -197,14 +247,14 @@ $(document).ready(function(){
     });
     });
 
-    $("#closeMenu").click(function(){
-        console.log("hi");
-        $("#menuOverlay").hide(); 
-    }); 
+    // $("#closeMenu").click(function(){
+    //     console.log("hi");
+    //     $("#menuOverlay").hide(); 
+    // }); 
     
-    $("#openMenu").click(function(){
-        $("#menuOverlay").show(); 
-    })
+    // $("#openMenu").click(function(){
+    //     $("#menuOverlay").show(); 
+    // })
 
 
 });

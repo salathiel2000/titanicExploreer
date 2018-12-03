@@ -8,7 +8,7 @@
     db_connect(); 
 
     //suquery that returns the user's class
-    $subquery = "SELECT class"; 
+    $subquery = "SELECT userClass"; 
     $subquery .= " FROM member"; 
     $subquery .= " WHERE emailAddress = \"".$_SESSION['valid_user']."\"";
 
@@ -20,7 +20,9 @@
     $query .=   " WHERE class IN ($subquery)"; 
     $query .=   " ORDER BY RAND()"; 
     $query .=   " LIMIT 10"; 
-    
+
+    // $checkVal = 0;
+     
     // $checkVal = 0; //used to test if values are returning correctly with the percentageChance
 
     if(percentChance(5)){
@@ -36,21 +38,35 @@
     $result = db_query($query); 
     // echo $checkVal; 
 
+    $date_arr = array("April 10th, 1912", "April 10th, 1912", "April 11th, 1912");
+    $message_arr = array("Southampton", "Cherbourg", "Queenstown"); 
+
     ?>
 
     <div id="lobbyParent">
         <div id="time">
-            <h1>IT’S 6:51PM, APRIL 10TH 1912</h1>
-            <p>We’ll be leaving Cherbourg soon. In the meantime get acquainted with others on the ship.</p>
+            <h1>It’s <?php date_default_timezone_set("America/Vancouver"); echo date("h:ia").", ";
+                $randomVal = rand(0, 2); 
+                echo $date_arr[$randomVal]; 
+            ?>
+            </h1>
+            <p>We’ll be leaving 
+            <?php
+                if ($randomVal == 0) echo $message_arr[0]; 
+                if ($randomVal == 1) echo $message_arr[1]; 
+                if ($randomVal == 2) echo $message_arr[2]; 
+            ?>
+            soon. In the meantime get acquainted with others on the ship.</p>
         </div>
         <div id="lobby">
+        <div id="resulting-ticket"></div>
         
     <?php
     while($row = $result->fetch_assoc()){
         $name = preg_split("/[\s,\.]+/", $row['name']); 
         echo "<div class=\"lobbyNames\">";
         echo "  <p class=\"individualName\">".$name[2]."</p>"; 
-        echo "  <a class=\"individualLink\" href=\"passenger.php?pid=".$row['pid']."\">More Info</a>"; 
+        echo "  <a class=\"individualLink\" href=\"#\" id=".$row['pid']."\">More Info</a>"; 
         echo "</div>";
     }
     ?>

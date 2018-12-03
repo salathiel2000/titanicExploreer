@@ -53,7 +53,7 @@
         // echo        "<td>".$row['cabinNumber']."</td>"; 
         // echo    "</tr>";
         echo "<p>".$row['name']."</p>"; 
-        echo "<a href=\"passenger.php?pid=".$row['pid']."</a>"; 
+        echo "<a href=\"#\" id=".$row['pid']."</a>"; 
     }
     ?>
 

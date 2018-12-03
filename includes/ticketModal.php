@@ -34,10 +34,10 @@
 
 <?php 
 if($stmt->fetch()){
+	echo '<div id="modal"></div>';
 
 	echo '<div class="ticket">';
 	echo '<div class="ticket-content">'; 
-	echo '<img id="closeTicket" src="includes/assets/closeIcon.svg">';
 
 	//echo '	<div class="ticket-title">';
 	//echo '	</div>';
@@ -92,7 +92,6 @@ if($stmt->fetch()){
 			echo '</div>'; 
 		echo '</div>';
 		echo '</div>'; 
-
 
 		if(isset($_SESSION['valid_user'])){
 			db_connect(); // Found in db_functions.

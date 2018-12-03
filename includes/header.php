@@ -1,6 +1,19 @@
 
 <?php
 	session_start();
+	require_once("includes/db_functions.php"); 
+	db_connect(); 
+
+	if(isset($_SESSION['valid_user'])){
+	$query = "SELECT name FROM passenger INNER JOIN assignments ON passenger.pid = assignments.pid"; 
+	$query .= " WHERE assignments.emailAddress = \"".$_SESSION['valid_user']."\"";
+	$result = db_query($query);
+	while($row = $result->fetch_assoc()){
+		$name = $row['name']; 
+	}
+
+	$fullName = preg_split("/[\s,\.]+/", $name);
+	}
 ?>
 
 <html>
@@ -23,9 +36,17 @@
 		<?php if(isset($_SESSION['valid_user'])){ ?>
 			<div id="nameHeader">
 				<div id="nameIcon">
-					<p>EA</p>
+					<p>
+						<?php
+							echo substr($fullName[2], 0, 1)."".substr($fullName[0], 0, 1); 
+						?>
+					</p>
 				</div>
-				<h1>Elisabeth Allen</h1>
+				<h1>
+					<?php  
+						echo $fullName[2]." ".$fullName[0]; 
+					?>
+				</h1>
 			</div>
 		<?php } else { ?>
 		<div id="nameHeader"></div>
