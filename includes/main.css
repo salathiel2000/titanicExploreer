@@ -111,6 +111,7 @@ th{
 .ab {
 	box-sizing: border-box;
 	margin: auto;
+	margin-top: 10em;
     padding: 20px;
     text-align: center;
 	width: 60em;
@@ -210,6 +211,7 @@ table.ab-table td.right-bar {
 	border-collapse: collapse;
 	width: 70%;
 	margin: auto;
+	padding-top: 5em;
 }
 .manifest-head {
 	margin: 2em;
@@ -335,6 +337,7 @@ table.manifest-table td {
 	background-size: 100%;
 	background-repeat: no-repeat;
 	max-width: auto;
+	min-height: 37em;
 }
 
 .ticket-item h2 {
@@ -414,6 +417,113 @@ table.manifest-table td {
     font-style: normal;
 	text-decoration: none;
 }
+
+#profile::after{
+    content : "";
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    background: url("assets/cabin.jpg"); 
+    opacity: 0.15;
+    width: 100vw; 
+    height: 100vh; 
+	z-index: -100;
+	background-size: 100%;
+	background-repeat: no-repeat;
+
+}
+
+.profile-wrapper {
+	width: 40%;
+	margin: auto;
+	margin-top: 10em;
+	text-align: center;
+}
+.profile-content {
+	
+	width: 100%;
+	display: flex;
+	font-family: 'Sentinel-Book'; 
+    font-weight: 500; 
+    font-style: normal; 
+}
+.profile-wrapper h1 {
+    text-transform: uppercase;
+
+    font-family:  'Avenir-Next-Bold', sans-serif; 
+    font-weight: 900; 
+    font-style: normal;
+    font-size: 2rem;
+    color: #9C2B37; 
+    letter-spacing: 5px;
+}
+.profile-wrapper  {
+	text-align: left;
+}
+
+
+.profile-wrapper h1 a {
+    text-transform: uppercase;
+    font-style: italic;
+	text-decoration: none;
+    font-size: 1.5rem;
+	    letter-spacing: 5px;
+
+    color: #9C2B37; 
+}
+
+.profile-c {
+
+	
+	border-top: 4px solid black;
+	text-align: left;
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+}
+.profile-column-right {
+
+	text-align: left;
+	width: auto;
+	display: flex;
+	flex-direction: column;
+}
+.profile-item {
+	width: 50%;
+	display: flex;
+	flex-direction: row;
+}
+.profile-content {
+	border-top: 4px solid black;
+
+		flex-direction: column;
+
+}
+.profile-content h1 {
+    text-transform: capitalize;
+
+	color: black;
+    font-family: 'Sentinel-Bold'; 
+    font-weight: 700; 
+    font-style: normal; 
+	font-size: 2em;
+}
+#saveProfile{
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+    font-size: 0.8rem;
+    letter-spacing: 0.7px; 
+    background-color: #000; 
+    color: white; 
+    border: none; 
+    padding: 1rem 2rem;
+}
+.profile-table {
+	width: auto;
+	display: block;
+}
+
 
 /*Register & Login start*/
     #register{

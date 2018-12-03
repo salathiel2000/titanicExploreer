@@ -23,7 +23,7 @@ if (isset($_SESSION['valid_user'])) {
 	$query .= " AND assignments.emailAddress = '". $_SESSION['valid_user'] . "'";
 		
 //SUBMIT
-	echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
+	//echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
 	$result = db_query($query); // Send off query to msqli.
 
 	// Display Result
@@ -33,19 +33,27 @@ if (isset($_SESSION['valid_user'])) {
 
 		$row = $result->fetch_assoc(); // Get row.
 			
+	?>
+	<div id="profile">
+	<div class="profile-wrapper">
+	<h1>Profile <a href="" id="editProfile">[Edit]</a></h1>
 
-		echo '<h3>Profile <a href="" id="editProfile">[Edit]</a></h3>';
+	
+	<?php
 		echo '<p>Welcome <span id="displayFName">'.$row['fName'].'</span> '.$row['lName'].'! ('.$row['emailAddress'].')</p>';
 		echo '<p>Your entered age is '.$row['userAge'].', your entered gender is '.$row['userGender'].', and your entered income ('.$row['annualIncome'].') adjusted for inflation puts you in class '.$row['userClass'].'.</p>';
 		echo '<p>Based on your entered information, we have matched you to the following passenger from the Titanic:</p>';
 
+		?>
+	<div id="bottom-half" class="profile-content">
+		<h1><?php echo $row['name']; ?></h1>
+		
+
+		<?php
+		
 		// Print table.
-		echo '<table>';
-		echo '	<tr><td><h3>Passenger Information</h3></td></tr>';
-		echo '	<tr>';
-		echo '		<td style="text-align:right;"><strong>Name: </strong></td>';
-		echo '		<td>'.$row['name'].'</td>';
-		echo '	</tr>';
+		echo '<table class="profile-table">';
+		
 		echo '	<tr>';
 		echo '		<td style="text-align:right;"><strong>Gender: </strong></td>';
 		echo '		<td>'.$row['gender'].'</td>';
@@ -58,11 +66,12 @@ if (isset($_SESSION['valid_user'])) {
 		echo '		<td style="text-align:right;"><strong>Family Onboard: </strong></td>';
 		echo '		<td>'.$row['familyOnboard'].'</td>';
 		echo '	</tr>';
-					echo '	<tr>';
+		echo '	<tr>';
 		echo '		<td style="text-align:right;"><strong>Embarked from: </strong></td>';
 		echo '		<td>'.$row['embarked'].'</td>';
-		echo '	<tr><td><h3>Ticket Information</h3></td></tr>';
-		echo '	<tr>';
+		echo '	</tr>';	
+		echo '	<tr><td><br><h3 style="text-align:right;">Ticket Information</h3></td></tr>';
+		echo '  <tr>';
 		echo '		<td style="text-align:right;"><strong>Ticket Number: </strong></td>';
 		echo '		<td>'.$row['ticketNumber'].'</td>';
 		echo '	</tr>';
@@ -74,14 +83,17 @@ if (isset($_SESSION['valid_user'])) {
 		echo '		<td style="text-align:right;"><strong>Class: </strong></td>';
 		echo '		<td>'.$row['class'].'</td>';
 		echo '	</tr>';
-		echo '	<tr><td><h3>Cabin Information</h3></td></tr>';
 		echo '	<tr>';
 		echo '		<td style="text-align:right;"><strong>Cabin Number: </strong></td>';
 		echo '		<td>'.$row['cabinNumber'].'</td>';
 		echo '	</tr>';
 		echo '</table>';
 
-
+		
 	db_close(); // Also found in db_functions.
 }
 ?>
+</div>
+</div>
+</div>
+</div>

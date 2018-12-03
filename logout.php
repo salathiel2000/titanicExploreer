@@ -84,7 +84,7 @@
 					
 					if ($row['survived'] == 1) {
 					echo '<td id="survived">';
-						echo '>Survived';
+						echo 'Survived';
 						if (empty($row['body'])) {
 							echo ' — raft # unknown.';
 						} else {

@@ -19,7 +19,7 @@ if (isset($_SESSION['valid_user'])) {
 		
 	
 //SUBMIT
-	echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
+	//echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
 		
 	$result = db_query($query); // Send off query to msqli.
 
@@ -35,43 +35,50 @@ if (isset($_SESSION['valid_user'])) {
 	$userGender = $row['userGender'];
 	$annualIncome = $row['annualIncome'];
 
-	echo $userGender;
-
 	echo '<h3>Edit Profile</h3>';
 			
-	echo '<div>';
-	echo '<p><label for="fName">First Name</label> <input id="fName" name="fName" type="text"';
-	if (!empty($fName)) echo 'value="'.$fName.'"';
-	echo '> ';
-	echo '<label for="lName">Last Name</label> <input id="lName" name="lName" type="text"';
-	if (!empty($lName)) echo 'value="'.$lName.'"';
+	echo '<div class="row">';
+		echo '<div class="stacked half">';
 
-	echo'></p>';
+			echo '<label for="fName">First Name</label> <input id="fName" name="fName" type="text"';
+			if (!empty($fName)) echo 'value="'.$fName.'"';
+			echo '> ';
+		echo '</div>';
+		echo '<div class="stacked half">';
+			echo '<label for="lName">Last Name</label> <input id="lName" name="lName" type="text"';
+			if (!empty($lName)) echo 'value="'.$lName.'"';
+			echo'>';
+		echo '</div>';
 	echo '</div>';
 
-	echo '<div>';
-    echo '<p><label for="age">Age </label>';
-    echo '<input id="age" type="number" name="age" min="0" max="150" ';
-	if (!empty($userAge)) echo 'value="'.$userAge.'"';
-	echo '>';
+
+	echo '<div class="row">';
+		echo '<div class="stacked third">';
+			echo '<label for="age">Age </label>';
+			echo '<input id="age" type="number" name="age" min="0" max="150" ';
+			if (!empty($userAge)) echo 'value="'.$userAge.'"';
+			echo '>';
+		echo '</div>';
+		echo '<div class="stacked third">';
+			echo '<label for="income">Annual Income </label>';
+			echo '<input id="annualIncome" type="number" name="income" placeholder="$"';
+			if (!empty($annualIncome)) echo 'value="'.$annualIncome.'"';
+			echo '">';
+		echo '</div>';
+		echo '<div class="stacked third">';
+			echo '<fieldset>';
+			echo '<legend>Gender </legend>';
+			echo '<input id="male" type="radio" name="gender" value="male"';
+			if(!empty($userGender) && $userGender == "male") { echo "checked";}
+			echo '> Male<br>';
+			echo '<input id="female" type="radio" name="gender" value="female"';
+			if(!empty($userGender) && $userGender == "female") { echo "checked";}
+			echo '> Female<br>';
+			echo '</fieldset>';
+		echo '</div>';
 	echo '</div>';
 
-	echo '<div>';
-    echo '<p><label for="income">Annual Income </label>';
-    echo '<input id="annualIncome" type="number" name="income" placeholder="$"';
-	if (!empty($annualIncome)) echo 'value="'.$annualIncome.'"';
-	echo '">';
-	echo '</div>';
-
-	echo '<fieldset>';
-	echo '<p><legend>Gender </legend>';
-	echo '<input id="male" type="radio" name="gender" value="male"';
-	if(!empty($userGender) && $userGender == "male") { echo "checked";}
-	echo '> Male<br>';
-	echo '<input id="female" type="radio" name="gender" value="female"';
-	if(!empty($userGender) && $userGender == "female") { echo "checked";}
-	echo '> Female<br>';
-	echo '</fieldset>';
+	
 
 
 	/*echo '<p>Current Password: <input name="currentPassword" type="text"></p>';

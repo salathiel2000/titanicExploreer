@@ -112,20 +112,6 @@ $(document).ready(function(){
         });
     });
 
-	//AJAX for modifying profile
-    $('#result').on('click', '#editProfile', function(event){
-        event.preventDefault(); // Prevents default action of event being triggered.
-		console.log("Editing profile...");
-        var myUrl = "includes/editProfile.php";
-        $.post(myUrl, function(data, status) {
-			
-            if(status == "success"){
-                $("#result").html(data); 
-                //console.log("data:"+data);      
-            }
-        });
-    });
-
 	$('.manifest-table').on('click', '.row-listener', function(event){
         event.preventDefault(); // Prevents default action of event being triggered.
 		console.log("Opening...");
@@ -160,6 +146,20 @@ $(document).ready(function(){
 	var incomeEdit;
 	var ageEdit;
 	var genderEdit;
+
+	//AJAX for modifying profile
+    $('#result').on('click', '#editProfile', function(event){
+        event.preventDefault(); // Prevents default action of event being triggered.
+		console.log("Editing profile...");
+        var myUrl = "includes/editProfile.php";
+        $.post(myUrl, function(data, status) {
+			
+            if(status == "success"){
+                $("#bottom-half").html(data); 
+                //console.log("data:"+data);      
+            }
+        });
+    });
 
 	//AJAX for submitting modified profile
     $('#result').on('click','#saveProfile', function(event){
