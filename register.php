@@ -9,6 +9,7 @@
 		exit();
 	}
 
+	if (!isset($_SESSION['valid_user'])) {
 	db_connect(); 
 
 	$fName = $lName = $email = $password1 = $password2 = $age = $income = $gender = $class = ""; 
@@ -264,6 +265,17 @@
 </body>
 
 <?php 
+		} else {
+			// Make a default callback URL in case the user didn't come from another page.
+			$callback_url = "/titanicExplorer/index.php";
+
+			// But... if the user came from another page, overwrite the default address.
+			if (isset($_SESSION['callback_url'])) {
+				$callback_url = $_SESSION['callback_url'];
+			}
+			// And then go to that address.
+			header("Location: http://".$_SERVER['HTTP_HOST'].$callback_url); // Redirect out of HTTPS.
+		}
 	// Includes minimal header. Closes </body>, and closes </html>.
 	include("includes/footer.php"); 
 ?>
