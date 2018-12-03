@@ -12,6 +12,19 @@
 	}
 
 	if ($_SESSION['valid_user'] != null) {
+
+	?>
+<div id="register">
+	<div class="formImg">
+		<img src="includes/assets/titanicPostcard_bw.jpg">
+	</div>
+	<div id="registerForm">
+		<img src="includes/assets/topDecoration.png">
+		<h1>LOGOUT</h1>
+
+
+		
+	<?php
 		db_connect(); // Quick connect function.
 		//echo print_r($_SESSION['valid_user']);
 		//SELECT
@@ -44,19 +57,18 @@
 
 		$query .= " WHERE favorites.emailAddress = '". $_SESSION["valid_user"] . "'";
 		//SUBMIT
-		echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
+		//echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
 		$result = db_query($query); // Send off query to msqli.
 
 		if (!$result) { 
 					die("Bad query! Please mark mercifully."); 
 				}
 
-				echo '<h3>Passenger Fates</h3>';
 				// Print table.
-				echo '<table>';
+				echo '<table class="logout-table">';
 				echo '	<thead>';
 				echo '		<tr>';
-				echo '		<th><strong>Name</strong></th>';
+				echo '		<th class="right-bar"><strong>Name</strong></th>';
 				echo '		<th><strong>Fate</strong></th>';
 				echo '		</tr>';
 				echo '	</thead>';
@@ -65,19 +77,21 @@
 			
 				$i = 0;
 				while ($row = $result->fetch_assoc()) { // Get associative array row by row.
-					echo '	<tr>';
-					echo '		<td id="passengerName"><a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a>';
+					echo '<tr>';
+					echo '<td  class="right-bar" id="passengerName">'.$row['name'];
 					if ($i == 0) echo ' (You)';
 					echo '</td>';
-					echo '		<td id="survived">';
+					
 					if ($row['survived'] == 1) {
-						echo 'Survived';
+					echo '<td id="survived">';
+						echo '>Survived';
 						if (empty($row['body'])) {
 							echo ' — raft # unknown.';
 						} else {
 							echo ' — raft # '.$row['raft'].'.';
 						}
 					} else {
+					echo '<td class="redout" id="survived">';
 						echo 'Killed';
 						if (empty($row['body'])) {
 							echo ' — no body recovered.';
@@ -93,10 +107,10 @@
 				echo '	</table>';	
 		 
 	echo '<form action="logout.php" method="post">';
-	echo '<p><input type="submit" name="logout" value="Logout"></p>';
+	echo '<p><input class="logout-button" type="submit" name="logout" value="Logout"></p>';
 	echo '</form>';
-		
-
-
 	}
 ?>
+		</div>
+</div>
+		
