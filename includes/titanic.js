@@ -136,6 +136,20 @@ $(document).ready(function(){
             }
         });
     });
+		$('.ab-table').on('click', '.row-listener', function(event){
+        event.preventDefault(); // Prevents default action of event being triggered.
+		console.log("Opening...");
+		var pid = $(this).attr("id");
+		var myUrl = "includes/ticketModal.php";
+
+        $.post(myUrl, { ticketPid: pid }).done(function(data, status) {
+			
+            if(status == "success"){
+                $("#resulting-ticket").html(data); 
+                //console.log("data:"+data);      
+            }
+        });
+    });
 
 	var fNameEdit;
 	var lNameEdit;
