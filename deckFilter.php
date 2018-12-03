@@ -35,7 +35,7 @@
     //SUBMIT
     $subresult = db_query($subquery); // Send off query to msqli.
     $total = $subresult->num_rows; 
-    $limit = 50; 
+    $limit = 10; 
     $pages = ceil($total / $limit);
     $currPage = 1;
     // setCookie("pages", $pages, time() + (86400 * 30), "/"); 
@@ -49,6 +49,7 @@
     if(isset($_GET['currPage'])){
         $currPage = $_GET['currPage']; 
     }
+
     //calculate offset for pagination
     $offset = ($currPage - 1) * $limit; 
     
@@ -57,8 +58,9 @@
     $outputArr = []; 
 
     while ($row = $result->fetch_assoc()) { // Get associative array row by row.
-        $output =  '<tr>
-                    <td id="passengerName"><a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a></td>
+        $output =  '<tr class="row-listener" id="'.$row['pid'].'">
+
+                    <td id="passengerName">'.$row['name'].'</td>
                     <td id="homeDest"';
                     if (!empty($row['homeDest'])) $output .= '>'.$row['homeDest'];
 				    else $output .= ' class="unknown">Unknown';

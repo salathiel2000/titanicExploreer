@@ -21,20 +21,21 @@
 	require_once("includes/pagination.php"); //Include pagination functions.
 ?>
 
-<form action="explore.php" method="get">
+<div class="manifest-wrapper">
+<div id="resulting-ticket"></div>
+	<div class="manifest-head">
+
+	<form action="explore.php" method="get">
+
 	<header>
-		<h1>Query</h1>
+		<h1>Passenger Manifest</h1>
 	</header>
 	<p>
 	<div class="panel">
-	<h3 id="filter">Filters</h3>
-	<p>Search:
-	<input id="search" name="search" type="text" <?php if (isset($searchKeyword)) echo 'value="'.$searchKeyword.'"';?>>
-	Cabin Deck:
+	<input id="search" placeholder="Search..." name="search" type="text" <?php if (isset($searchKeyword)) echo 'value="'.$searchKeyword.'"';?>>
 		<select id="filterDeck" name="filterDeck">
 			<option value="any">Any</option>	
 			<?php
-
 				// Step 2a: Process Query for Decks
 				$query = "SELECT DISTINCT LEFT(cabinNumber, 1) "; 
 				$query .= "FROM cabin order by cabinNumber;";
@@ -58,7 +59,6 @@
 			?>
 		</select>
 
-		Class: 
 		<select id="filterClass" name="filterClass">
 			<option value="any">Any</option>	
 			<?php
@@ -87,25 +87,17 @@
 			
 		</select>
 	</p>
-
-	<input type="submit" name="submit" value="Submit"><br>
-			
-</form>
-
-<p>Pagination</p>
+	</div>
+	</form>
+</div>
 
 <?php
 
-$limit = 50; 
+$limit = 10; 
 
-$pageNum = 27; 
+$pageNum = 131; 
 
-echo "<select id=\"chooseNumber\">";
-for($i=1; $i < 28; $i++){
-	echo "<option id=\"".$i."\">".$i."</option>";
-}
-echo "</select>";
-echo "<p id=\"pages\">".$pageNum."</p>"; 
+
 
 //SELECT
 	$query = "SELECT ";
@@ -134,9 +126,9 @@ echo "<p id=\"pages\">".$pageNum."</p>";
 		$query .= " LIMIT ".$limit; 
 		// $query .= " OFFSET ".$offset; 
 //SUBMIT
-	echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
+	//echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
 	$result = db_query($query); // Send off query to msqli.
-	echo "<code id=\"testCode\"></code>";
+	//echo "<code id=\"testCode\"></code>";
 
 	
 	?>
@@ -150,9 +142,9 @@ echo "<p id=\"pages\">".$pageNum."</p>";
 			// Print table.
 			echo '<table class="manifest-table">';
 			echo '	<thead>';
-			echo '		<tr>';
+			echo '		<tr class="head">';
 			echo '		<th><strong>Name</strong></th>';
-			echo '		<th><strong>Home/Destination</strong></th>';
+			echo '		<th><strong>Home / Destination</strong></th>';
 			echo '		<th><strong>Cabin</strong></th>';
 			echo '		<th><strong>Class</strong></th>';
 			echo '		</tr>';
@@ -162,8 +154,8 @@ echo "<p id=\"pages\">".$pageNum."</p>";
 			
 			
 			while ($row = $result->fetch_assoc()) { // Get associative array row by row.
-				echo '	<tr>';
-				echo '		<td id="passengerName"><a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a></td>';
+				echo '	<tr class="row-listener" id="'.$row['pid'].'">';
+				echo '		<td id="passengerName">'.$row['name'].'</td>';
 				echo '		<td id="homeDest"';
 				if (!empty($row['homeDest'])) echo '>'.$row['homeDest'];
 				else echo ' class="unknown">Unknown';
@@ -177,8 +169,20 @@ echo "<p id=\"pages\">".$pageNum."</p>";
 			}
 			
 			echo '	</table>';
+			echo '<div class="manifest-page-control">';
+
+			echo "<select id=\"chooseNumber\">";
+			for($i=1; $i < 28; $i++){
+				echo "<option id=\"".$i."\">".$i."</option>";
+
+			}
+			echo "</select>"; 
+			echo "<span id=\"pages\">/ ".$pageNum."</span>"; 
+			echo '</div';
+
 ?>
-<div>
+	</div>
+</div>
 <?php
 	// Includes minimal header. Closes </body>, and closes </html>.
 	include("includes/footer.php"); 

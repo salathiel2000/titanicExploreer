@@ -82,16 +82,16 @@ th{
 }
 
 .unknown {
-	color: #fff;
-	background-color: #9c2b37;
-}
+    font-family: 'Courier-0blique'; 
+    font-weight: 500; 
+    font-style: italic;}
 
 #manifest::after{
     content : "";
     position: fixed;
     top: 0; 
     left: 0; 
-    background: url("assets/titanic_grain.jpg"); 
+    background: url("assets/passengersBoarding_3.jpg"); 
     opacity: 0.15;
     width: 100vw; 
     height: 100vh; 
@@ -100,9 +100,119 @@ th{
 	background-repeat: no-repeat;
 
 }
+.manifest-wrapper {
+	box-sizing: border-box;
+	border-collapse: collapse;
+	width: 70%;
+	margin: auto;
+}
+.manifest-head {
+	margin: 2em;
+}
+
+.manifest-head h1 {
+	color: #9c2b37;
+	text-transform: uppercase;
+	font-size: 2.5em;
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+}
+
+.manifest-head input {
+	padding: 1em 2em;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid black;
+}
+
+.manifest-head select {
+	padding: 1em 2em;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid black;
+}
+
+.manifest-wrapper select#chooseNumber {
+	padding: 1em 0;
+	background: rgba(255, 255, 255, 0);
+	border: 1px none black;
+	font-size: 2em;
+	text-transform: uppercase;
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+
+}
+
+.manifest-wrapper select#chooseNumber option {
+	padding: 1em 0;
+	background: rgba(255, 255, 255, 0);
+	border: 1px none black;
+	font-size: 0.5em;
+	text-transform: uppercase;
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+
+}
+
+.manifest-wrapper #pages {
+	padding: 1em 0;
+	color: rgba(0, 0, 0, 0.4);
+	border: 1px none black;
+	font-size: 2em;
+	text-transform: uppercase;
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+
+}
+.manifest-wrapper .manifest-page-control {
+	float: right;
+}
 
 table.manifest-table {
-	    border-collapse: collapse;
+	box-sizing: border-box;
+	border-collapse: collapse;
+	width: 100%;
+	margin: auto;
+}
+table.manifest-table tr {
+	border-bottom: 1px solid black;
+    font-family: 'Courier-Bold'; 
+    font-weight: 700; 
+    font-style: normal;
+	color: #000000;
+
+}
+
+
+table.manifest-table th {
+	border-top: 4px solid black;
+	padding: 1em 0;
+	color: #9c2b37;
+    text-transform: uppercase;
+	font-size: 1.2em;
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+	padding: 1em;
+
+}
+table.manifest-table tr:hover th {
+
+	color: #FFFFFF;
+
+}
+table.manifest-table tr:hover {
+	background-color: #000000;
+	color: #FFFFFF;
+
+}
+
+
+table.manifest-table td {
+	padding: 1em;
+
 }
 
 .ticket {
