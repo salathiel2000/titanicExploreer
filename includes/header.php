@@ -46,7 +46,7 @@
 	<div id="menuOptions">
 		<a href="index.php">Home</a>
 		<a href="explore.php">Explore</a>
-		<a href="index.php">Address Book</a>
+		<a href="addressBook.php">Address Book</a>
 		<?php if (isset($_SESSION['valid_user'])) {
 			echo '<a href="profile.php">My Profile</a>';
 			echo '<a href="logout.php">Logout</a>';

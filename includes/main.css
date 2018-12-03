@@ -458,7 +458,7 @@ table.manifest-table td {
     }
 /*Register & Login end*/
 
-/*Header start*/
+/*Menu start*/
 #nameIcon{
     color: white; 
     margin: 0; 
@@ -573,3 +573,4 @@ table.manifest-table td {
     text-decoration: none;
     margin-left: 0.5rem;
 }
+/*Menu end*/

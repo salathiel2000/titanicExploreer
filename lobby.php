@@ -46,12 +46,13 @@
         
     <?php
     while($row = $result->fetch_assoc()){
-        echo    "<tr>"; 
-        echo        "<td><a href=\"passenger.php?pid=".$row['pid']."\">".$row['name']."</a></td>"; 
-        echo        "<td>".$row['homeDest']."</td>"; 
-        echo        "<td>".$row['class']."</td>"; 
-        echo        "<td>".$row['cabinNumber']."</td>"; 
-        echo    "</tr>";
+        // echo    "<tr>"; 
+        // echo        "<td><a href=\"passenger.php?pid=".$row['pid']."\">".$row['name']."</a></td>"; 
+        // echo        "<td>".$row['homeDest']."</td>"; 
+        // echo        "<td>".$row['class']."</td>"; 
+        // echo        "<td>".$row['cabinNumber']."</td>"; 
+        // echo    "</tr>";
+        echo "<p>".$row['name']."</p>"; 
     }
     ?>
 
