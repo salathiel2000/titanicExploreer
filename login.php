@@ -99,6 +99,16 @@
 </div>
 
 <?php
+	} else {
+		// Make a default callback URL in case the user didn't come from another page.
+			$callback_url = "/titanicExplorer/index.php";
+
+			// But... if the user came from another page, overwrite the default address.
+			if (isset($_SESSION['callback_url'])) {
+				$callback_url = $_SESSION['callback_url'];
+			}
+			// And then go to that address.
+			header("Location: http://".$_SERVER['HTTP_HOST'].$callback_url); // Redirect out of HTTPS.
 	}
 ?>
 
