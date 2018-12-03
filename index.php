@@ -104,7 +104,6 @@
 
 
 <?php
-		echo '<Insert Crew>';
 		db_connect(); // Quick connect function.
 		//echo print_r($_SESSION['valid_user']);
 //SELECT
@@ -127,24 +126,24 @@
 			}
 
 			// Print table.
-			echo '<h3>Recent Members</h3>';
-			echo '<table>';
-			echo '	<thead>';
-			echo '		<tr>';
-			echo '			<th><strong>Name</strong></th>';
-			echo '			<th><strong>Date</strong></th>';
-			echo '		</tr>';
-			echo '	</thead>';
+			// echo '<h3>Recent Members</h3>';
+			// echo '<table>';
+			// echo '	<thead>';
+			// echo '		<tr>';
+			// echo '			<th><strong>Name</strong></th>';
+			// echo '			<th><strong>Date</strong></th>';
+			// echo '		</tr>';
+			// echo '	</thead>';
 
 			// echo '<tr id="result"></tr>';
-			while ($row = $result->fetch_assoc()) { // Get associative array row by row.
-				echo '	<tr>';
-				echo '		<td>'.$row['fName'].' (<a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a>)</td>'; 
-				echo '		<td>'.$row['creationDate'].'</td>';
-				echo '	</tr>';
-			}
+			// while ($row = $result->fetch_assoc()) { // Get associative array row by row.
+			// 	echo '	<tr>';
+			// 	echo '		<td>'.$row['fName'].' (<a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a>)</td>'; 
+			// 	echo '		<td>'.$row['creationDate'].'</td>';
+			// 	echo '	</tr>';
+			// }
 			
-			echo '</table>';	
+			// echo '</table>';	
 	}
 
 	// Includes minimal header. Closes </body>, and closes </html>.
