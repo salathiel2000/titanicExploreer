@@ -17,21 +17,43 @@
 	<body>
 
 	<!-- Navigation bar. -->
-	<nav>
-		<a href="index.php"><h1>TitanicExplorer</h1></a>
-		<ul>
-			<a href="index.php"><li>Home</li></a>
-			<a href="explore.php"><li>Explore</li></a>
-			<!-- TODO Make profile button appear if logged in. -->
-			<?php 
-				if (isset($_SESSION['valid_user'])) {
-					echo '<a href="profile.php"><li class="bound-right">My Profile</li></a>';
-					echo '<a href="logout.php"><li class="bound-right">Logout</li></a>';
-				} else {
-					echo '<a href="login.php"><li class="bound-right">Login</li></a>';
-				}
-			?>
-		</ul>
-	</nav>
 
+<div id="headerParent">
+	<div id="header">
+		<?php if(isset($_SESSION['valid_user'])){ ?>
+			<div id="nameHeader">
+				<div id="nameIcon">
+					<p>EA</p>
+				</div>
+				<h1>Elisabeth Allen</h1>
+			</div>
+		<?php } else { ?>
+		<div id="nameHeader"></div>
+		<?php } ?>
+		<div id="menuHeader">
+			<img src="includes/assets/menuIcon.svg">
+			<a id="openMenu" href="#">MENU</a>
+		</div>
+	</div>
+</div>
+
+
+<div id="menuOverlay">
+	<div id="closeHeader">
+		<img src="includes/assets/closeIcon.svg">
+		<a id="closeMenu" href="#">CLOSE</a>
+	</div>
+	<div id="menuOptions">
+		<a href="index.php">Home</a>
+		<a href="explore.php">Explore</a>
+		<a href="index.php">Address Book</a>
+		<?php if (isset($_SESSION['valid_user'])) {
+			echo '<a href="profile.php">My Profile</a>';
+			echo '<a href="logout.php">Logout</a>';
+			} else {
+			echo '<a href="login.php">Login</a>';
+			}
+		?>
+	</div>
+</div>
 	<!-- PHP content created after this point. -->

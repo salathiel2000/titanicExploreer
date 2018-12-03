@@ -160,4 +160,15 @@ $(document).ready(function(){
     });
     });
 
+    $("#closeMenu").click(function(){
+        console.log("hi");
+        $("#menuOverlay").hide(); 
+    }); 
+    
+    $("#openMenu").click(function(){
+        $("#menuOverlay").show(); 
+    })
+
 });
+
+

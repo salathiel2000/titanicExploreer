@@ -73,15 +73,32 @@
 	}
 
 	if (!isset($_SESSION['valid_user'])) { // NOTE: checking for NULL might not work.
-		echo '<form action="login.php" method="post">';
-		echo '<h3>Login</h3>';
-		echo '<p>Email:';
-		echo '<input type="text" name="loginEmail"></p>';
-		echo '<p>Password:';
-		echo '<input type="password" name="loginPassword"></p>';
-		echo '<p><input type="submit" name="submit" value="Submit"></p>';
-		echo '</form>';
-		echo '<p><a href="register.php">Don\'t have an account?</a></p>';
+?>
+<div id="register">
+	<div class="formImg">
+		<img src="includes/assets/titanicPostcard_bw.jpg">
+	</div>
+	<div id="registerForm">
+		<img src="includes/assets/topDecoration.png">
+		<h1>LOGIN</h1>
+
+		<form id="login" action="login.php" method="post">
+			<div class="stacked row">
+				<label for="loginEmail">Email<span class="mandatory">*</span></label>
+				<input type="text" name="loginEmail">
+			</div>
+			<div class="stacked row">
+				<label for="loginPassword">Password<span class="mandatory">*</span></label>
+				<input type="password" name="loginPassword">
+			</div>
+			<input id="registerSubmit" type="submit" name="submit" value="SUBMIT">
+		</form>
+		<p class="bottom">Don't have an account?</p>
+		<a class="bottom" href="register.php">Register</a>
+	</div>
+</div>
+
+<?php
 	}
 ?>
 
