@@ -57,7 +57,9 @@ if($stmt->fetch()){
 	echo '<div class="ticket-content">'; 
 
 	//echo '	<div class="ticket-title">';
-	//echo '	</div>'; 
+	//echo '	</div>';
+		echo '	<div class="ticket-column">'; 
+
 	echo '<div class="ticket-left-content">'; 
 
 	echo '	<div class="ticket-item">'; 
@@ -84,9 +86,10 @@ if($stmt->fetch()){
 	echo '	</div>'; 
 
 	echo '	</div>'; 
-	echo '</div>'; 
+	echo '</div>';
+	echo '<div class="ticket-columns">'; 
+
 	echo '<div class="ticket-right-content">'; 
-	echo '	<div class="ticket-column">'; 
 
 			echo '	<div class="ticket-item">'; 
 				echo '<h2>Cabin</h2>'; 
@@ -105,16 +108,19 @@ if($stmt->fetch()){
 					}
 				echo '</div>';
 			echo '</div>'; 
+		echo '</div>';
 		echo '</div>'; 
+
+		if(isset($_SESSION['valid_user'])){
+			echo '<a href="addToAddressBook.php?pid='.$pid.'" class="ticket-button">Add to address book</a>';
+		}
 	echo '</div>'; 
 
 }
 
 //display button if user is logged in
 // if((isset($_SESSION['valid_user'])) && ($checkRes->num_rows == 0)){
-if(isset($_SESSION['valid_user'])){
-    echo '<a href="addToAddressBook.php?pid='.$pid.'" class="ticket-button">Add to address book</a>';
-}
+
 
 //have to add in functionality to check if passenger is already in address book 
 /*

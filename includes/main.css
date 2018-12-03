@@ -98,15 +98,16 @@ th{
 }
 
 .ticket {
-
+	box-sizing: border-box;
 	margin: auto;
     padding: 20px;
     text-align: center;
-	width: 43%;
+	width: 55em;
 	height: auto;
 	padding: 4em;
+	padding-top: 10em;
 	background-image: url("assets/ticket.png");
-	background-size: contain;
+	background-size: 100%;
 	background-repeat: no-repeat;
 	max-width: auto;
 }
@@ -127,11 +128,17 @@ th{
 }
 
 .ticket-content {
-	margin: 4em;
-	margin-top: 6em;
-
-	text-align: left;
+	margin: auto;
+	padding: 0;
+	text-align: center;
+}
+.ticket-column {
+	margin: 0;
+	padding: 0;
 	display: flex;
+	flex-direction:row;
+		text-align: left;
+
 }
 
 .ticket-title {
