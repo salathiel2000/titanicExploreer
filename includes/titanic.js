@@ -108,15 +108,15 @@ $(document).ready(function(){
         });
     });
 
-	//AJAX for modifying profile
+    //AJAX for modifying profile
     $('#result').on('click', '#editProfile', function(event){
         event.preventDefault(); // Prevents default action of event being triggered.
-		console.log("Editing profile...");
+        console.log("Editing profile...");
         var myUrl = "includes/editProfile.php";
         $.post(myUrl, function(data, status) {
-			
+            
             if(status == "success"){
-                $("#result").html(data); 
+                $("#bottom-half").html(data); 
                 //console.log("data:"+data);      
             }
         });
@@ -247,14 +247,22 @@ $(document).ready(function(){
     });
     });
 
-    // $("#closeMenu").click(function(){
-    //     console.log("hi");
-    //     $("#menuOverlay").hide(); 
-    // }); 
+    $("#closeMenu").click(function(){
+        console.log("hi");
+        $("#menuOverlay").hide(); 
+        $('html, body').css({
+            overflow: 'auto',
+            height: '100%'
+        }); 
+    }); 
     
-    // $("#openMenu").click(function(){
-    //     $("#menuOverlay").show(); 
-    // })
+    $("#openMenu").click(function(){
+        $("#menuOverlay").show(); 
+        $('html, body').css({
+            overflow: 'hidden',
+            height: '100%'
+        }); 
+    })
 
 
 });
