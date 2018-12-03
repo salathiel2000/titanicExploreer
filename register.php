@@ -188,55 +188,76 @@
 
 <div id="register">
 	<div class="formImg">
-		<div id="registerForm">
-			<h1>Register</h1>
+		<img src="includes/assets/titanicPostcard_bw.jpg">
+	</div>
+	<div id="registerForm">
+		<img src="includes/assets/topDecoration.png">
+		<h1>REGISTER</h1>
 
-			<form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
-				<div>
-					<label for="fName">First Name</label>
+		<form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+			<div class="row">
+				<div class="stacked half">
+					<label for="fName">First Name<span class="mandatory">*</span></label>
 					<input type="text" name="fName" value="<?php echo $fName?>">
+					<p class="error"><?php if(!empty($error['fName'])) echo $error['fName'] ?>
 				</div>
 
-				<div>
-					<label for="lName">Last Name</label>
+				<div class="stacked half">
+					<label for="lName">Last Name<span class="mandatory">*</span></label>
 					<input type="text" name="lName" value="<?php echo $lName?>">
+					<p class="error"><?php if(!empty($error['lName'])) echo $error['lName'] ?>
 				</div>
+			</div>
 
-				<div>
-					<label for="email">Email</label>
-					<input type="email" name="email" value="<?php echo $email?>">
-				</div>
+			<div class="stacked row">
+				<label for="email">Email<span class="mandatory">*</span></label>
+				<input type="email" name="email" value="<?php echo $email?>">
+				<p class="error"><?php if(!empty($error['email'])) echo $error['email'] ?>
+			</div>
 
-				<div>
-					<label for="password1">Enter Password</label>
+			<div class="row">
+				<div class="stacked half">
+					<label for="password1">Enter Password<span class="mandatory">*</span></label>
 					<input type="password" name="password1">
+					<p class="error"><?php if(!empty($error['password1'])) echo $error['password1'] ?>
+					<p class="error"><?php if(!empty($error['passwords_not_match'])) echo $error['passwords_not_match'] ?>
 				</div>
 
-				<div>
-					<label for="password2">Re-enter Password</label>
+				<div class="stacked half">
+					<label for="password2">Re-enter Password<span class="mandatory">*</span></label>
 					<input type="password" name="password2">
+					<p class="error"><?php if(!empty($error['password2'])) echo $error['password2'] ?>
 				</div>
+			</div>
 
-					<div>
+			<div class="row">
+				<div class="stacked third">
 					<label for="age">Age</label>
 					<input type="number" name="age" min="0" max="150" value="<?php echo $age?>">
+					<p class="error"><?php if(!empty($error['age'])) echo $error['age'] ?>
 				</div>
 
-				<div>
+				<div class="stacked third">
 					<label for="income">Annual Income</label>
 					<input type="number" name="income" placeholder="$" value="<?php echo $income?>">
+					<p class="error"><?php if(!empty($error['income'])) echo $error['income'] ?>
 				</div>
 
-				<fieldset>
+				<fieldset class="third">
 					<legend>Gender</legend>
-					<input type="radio" name="gender" <?php if(isset($gender) && $gender == "male") { echo "checked";}?> value="male" checked> Male<br>
-					<input type="radio" name="gender" <?php if(isset($gender) && $gender == "female") { echo "checked";}?> value="female"> Female<br>
+					<div id="gender">
+						<input type="radio" name="gender" <?php if(isset($gender) && $gender == "male") { echo "checked";}?> value="male" checked><span class="radioLabel">Male</span><br>
+						<input id="rightGender" type="radio" name="gender" <?php if(isset($gender) && $gender == "female") { echo "checked";}?> value="female"><span class="radioLabel">Female</span><br>
+					</div>
 				</fieldset>
+			</div>
 
-				<input type="submit" name="submit" value="Submit">
-			</form>
-		</div>
+			<input id="registerSubmit" type="submit" name="submit" value="SUBMIT">
+		</form>
+		<p class="bottom">Already registered</p>
+		<a class="bottom" href="login.php">Log In</a>
 	</div>
+
 </div>
 </body>
 
