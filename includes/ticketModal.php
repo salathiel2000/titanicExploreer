@@ -29,20 +29,7 @@
     //bind the results from the query to variables
     $stmt->bind_result($name, $gender, $age, $homeDest, $class, $cabin);
 
-	if(isset($_SESSION['valid_user'])){
-
-		$checkIfExistsQuery = "SELECT * FROM favorites";
-		$checkIfExistsQuery .= " WHERE favorites.pid = '".$pid."'";
-		$checkIfExistsQuery .= " AND favorites.emailAddress = '".$_SESSION['valid_user']."'";
-		echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$checkIfExistsQuery."</code></div></p>"; // Print SQL statement in plain text.
-
-		$result = db_query($checkIfExistsQuery); // Send off query to msqli.
-		// Step 4: Display Result
-		if (!$result) { 
-			die("Bad query! Please mark mercifully."); 
-		}
-		$row = $result->fetch_assoc();    //SOMETHING'S WRONG HERE
-	}
+	
 ?>
 
 <?php 
@@ -105,13 +92,27 @@ if($stmt->fetch()){
 		echo '</div>';
 		echo '</div>'; 
 
+
 		if(isset($_SESSION['valid_user'])){
-			if (!empty(row['pid'])) {
-			
-			
+			db_connect(); // Found in db_functions.
+
+			$checkIfExistsQuery = "SELECT * FROM favorites";
+			$checkIfExistsQuery .= " WHERE favorites.pid = '".$pid."'";
+			$checkIfExistsQuery .= " AND favorites.emailAddress = '".$_SESSION['valid_user']."'";
+			//echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$checkIfExistsQuery."</code></div></p>"; // Print SQL statement in plain text.
+
+			$result = db_query($checkIfExistsQuery); // Send off query to msqli.
+			// Step 4: Display Result
+			if (!$result) { 
+				die("Bad query! Please mark mercifully."); 
+			}
+			$row = $result->fetch_assoc();    //SOMETHING'S WRONG HERE
+
+
+			if ($row['emailAddress'] != $_SESSION['valid_user']) {
 				echo '<a href="addToAddressBook.php?pid='.$pid.'" class="ticket-button">Add to address book</a>';
 			} else {
-				echo '<a href="addToAddressBook.php?pid='.$pid.'" class="ticket-button">Remove from address book</a>';
+				echo '<a href="removeFromAddressBook.php?pid='.$pid.'" class="ticket-button">Remove from address book</a>';
 
 			}
 		}
