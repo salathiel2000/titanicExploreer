@@ -3,6 +3,12 @@
 	include("includes/header.php"); 
 	require_once("includes/db_functions.php"); 
 
+
+	if ($_SERVER["HTTPS"] != "on") {
+		header("Location: https://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]);
+		exit();
+	}
+
 	db_connect(); 
 
 	$fName = $lName = $email = $password1 = $password2 = $age = $income = $gender = $class = ""; 

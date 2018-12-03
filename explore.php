@@ -1,4 +1,9 @@
 <?php 
+	
+	if (!empty(($_SERVER["HTTPS"])) && ($_SERVER["HTTPS"] == "on")) {
+		header("Location: http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]);
+		exit();
+	}
 	// Includes <html> and <body>. Also includes navigation bar.
 	include("includes/header.php"); 
 ?>
