@@ -185,52 +185,59 @@
 ?>
 
 <body>
-<h1>Register</h1>
-    
-    <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
-        <div>
-            <label for="fName">First Name</label>
-            <input type="text" name="fName" value="<?php echo $fName?>">
-        </div>
 
-        <div>
-            <label for="lName">Last Name</label>
-            <input type="text" name="lName" value="<?php echo $lName?>">
-        </div>
+<div id="register">
+	<div class="formImg">
+		<div id="registerForm">
+			<h1>Register</h1>
 
-        <div>
-            <label for="email">Email</label>
-            <input type="email" name="email" value="<?php echo $email?>">
-        </div>
+			<form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+				<div>
+					<label for="fName">First Name</label>
+					<input type="text" name="fName" value="<?php echo $fName?>">
+				</div>
 
-        <div>
-            <label for="password1">Enter Password</label>
-            <input type="password" name="password1">
-        </div>
+				<div>
+					<label for="lName">Last Name</label>
+					<input type="text" name="lName" value="<?php echo $lName?>">
+				</div>
 
-        <div>
-            <label for="password2">Re-enter Password</label>
-            <input type="password" name="password2">
-        </div>
+				<div>
+					<label for="email">Email</label>
+					<input type="email" name="email" value="<?php echo $email?>">
+				</div>
 
-		 <div>
-            <label for="age">Age</label>
-            <input type="number" name="age" min="0" max="150" value="<?php echo $age?>">
-        </div>
+				<div>
+					<label for="password1">Enter Password</label>
+					<input type="password" name="password1">
+				</div>
 
-		<div>
-            <label for="income">Annual Income</label>
-            <input type="number" name="income" placeholder="$" value="<?php echo $income?>">
-        </div>
+				<div>
+					<label for="password2">Re-enter Password</label>
+					<input type="password" name="password2">
+				</div>
 
-		<fieldset>
-			<legend>Gender</legend>
-			<input type="radio" name="gender" <?php if(isset($gender) && $gender == "male") { echo "checked";}?> value="male" checked> Male<br>
-			<input type="radio" name="gender" <?php if(isset($gender) && $gender == "female") { echo "checked";}?> value="female"> Female<br>
-		</fieldset>
+					<div>
+					<label for="age">Age</label>
+					<input type="number" name="age" min="0" max="150" value="<?php echo $age?>">
+				</div>
 
-        <input type="submit" name="submit" value="Submit">
-    </form>
+				<div>
+					<label for="income">Annual Income</label>
+					<input type="number" name="income" placeholder="$" value="<?php echo $income?>">
+				</div>
+
+				<fieldset>
+					<legend>Gender</legend>
+					<input type="radio" name="gender" <?php if(isset($gender) && $gender == "male") { echo "checked";}?> value="male" checked> Male<br>
+					<input type="radio" name="gender" <?php if(isset($gender) && $gender == "female") { echo "checked";}?> value="female"> Female<br>
+				</fieldset>
+
+				<input type="submit" name="submit" value="Submit">
+			</form>
+		</div>
+	</div>
+</div>
 </body>
 
 <?php 
