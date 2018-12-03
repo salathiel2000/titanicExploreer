@@ -45,15 +45,14 @@ if (isset($_SESSION['valid_user'])) {
 		echo '<p>Based on your entered information, we have matched you to the following passenger from the Titanic:</p>';
 
 		?>
-	<div class="profile-content">
+	<div id="bottom-half" class="profile-content">
 		<h1><?php echo $row['name']; ?></h1>
-		<!--<p>is a <?php echo $row['age']; ?> year old <?php echo $row['gender']; ?> from <?php echo $row['homeDest']; ?>.</p>.-->
-	
-</div>
+		
+
 		<?php
 		
 		// Print table.
-		echo '<table>';
+		echo '<table class="profile-table">';
 		
 		echo '	<tr>';
 		echo '		<td style="text-align:right;"><strong>Gender: </strong></td>';
@@ -67,10 +66,12 @@ if (isset($_SESSION['valid_user'])) {
 		echo '		<td style="text-align:right;"><strong>Family Onboard: </strong></td>';
 		echo '		<td>'.$row['familyOnboard'].'</td>';
 		echo '	</tr>';
-					echo '	<tr>';
+		echo '	<tr>';
 		echo '		<td style="text-align:right;"><strong>Embarked from: </strong></td>';
 		echo '		<td>'.$row['embarked'].'</td>';
-		echo '	<tr><td><h3>Ticket Information</h3></td></tr>';
+		echo '	</tr>';	
+		echo '	<tr><td><br><h3 style="text-align:right;">Ticket Information</h3></td></tr>';
+		echo '  <tr>';
 		echo '		<td style="text-align:right;"><strong>Ticket Number: </strong></td>';
 		echo '		<td>'.$row['ticketNumber'].'</td>';
 		echo '	</tr>';
@@ -92,6 +93,7 @@ if (isset($_SESSION['valid_user'])) {
 	db_close(); // Also found in db_functions.
 }
 ?>
+</div>
 </div>
 </div>
 </div>

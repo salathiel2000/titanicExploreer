@@ -500,7 +500,21 @@ table.manifest-table td {
     font-style: normal; 
 	font-size: 2em;
 }
-
+#saveProfile{
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+    font-size: 0.8rem;
+    letter-spacing: 0.7px; 
+    background-color: #000; 
+    color: white; 
+    border: none; 
+    padding: 1rem 2rem;
+}
+.profile-table {
+	width: auto;
+	display: block;
+}
 
 
 /*Register & Login start*/
