@@ -1,4 +1,7 @@
 <?php
+	if (session_status() == PHP_SESSION_NONE) {
+		session_start();
+	}
 	require_once("db_functions.php");
     //connect to the database
     db_connect(); 
@@ -85,7 +88,6 @@ if($stmt->fetch()){
 
 	echo '	</div>'; 
 	echo '</div>';
-	echo '<div class="ticket-columns">'; 
 
 	echo '<div class="ticket-right-content">'; 
 

@@ -222,7 +222,7 @@ table.manifest-table td {
 	margin: auto;
     padding: 20px;
     text-align: center;
-	width: 55em;
+	width: 60em;
 	height: auto;
 	padding: 4em;
 	padding-top: 10em;
@@ -254,6 +254,7 @@ table.manifest-table td {
 }
 .ticket-column {
 	margin: 0;
+	margin-bottom: 2em;
 	padding: 0;
 	display: flex;
 	flex-direction:row;
@@ -277,6 +278,8 @@ table.manifest-table td {
 }
 
 .ticket-column {
+	flex-direction: row;
+
 }
 
 .ticket-double {
@@ -291,6 +294,8 @@ table.manifest-table td {
 	text-transform: uppercase;
 	background-color: #000000;
 	color: #ffffff;
+	margin: 5em 0;
+
 	padding: 1em;
 	font-family: 'Avenir-Next-Bold'; 
     font-weight: 900; 
