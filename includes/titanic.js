@@ -20,8 +20,9 @@ $(document).ready(function(){
         $.get(myUrl, function(data, status){
             if(status == "success"){
                 var res = $.parseJSON(data); 
-                $("#result").html(res['output']); 
-                $("#pages").html(res['pages']);
+                $("#result").html(res['output']);
+				$("#pages").html("/ ");
+                $("#pages").append(res['pages']);
                 pageNum = res['pages'];
                 //remove page numbers 
                 $("#chooseNumber option").remove(); 
@@ -48,8 +49,9 @@ $(document).ready(function(){
             if(status == "success"){
                 var res = $.parseJSON(data); 
                 $("#result").html(res['output']);
-                $("#pages").html(res['pages']);
-                pageNum = res['pages'];
+				$("#pages").html("/ ");
+                $("#pages").append(res['pages']);
+				pageNum = res['pages'];
                 //remove page numbers 
                 $("#chooseNumber option").remove(); 
                 //add new page numbers based on amount of results
@@ -75,8 +77,9 @@ $(document).ready(function(){
             if(status == "success"){
                 var res = $.parseJSON(data); 
                 $("#result").html(res['output']);
-                $("#pages").html(res['pages']);
-                pageNum = res['pages'];
+				$("#pages").html("/ ");
+                $("#pages").append(res['pages']);
+				pageNum = res['pages'];
                 //remove page numbers 
                 $("#chooseNumber option").remove(); 
                 //add new page numbers based on amount of results
@@ -96,8 +99,9 @@ $(document).ready(function(){
             if(status == "success"){
                 var res = $.parseJSON(data); 
                 $("#result").html(res['output']); 
-                $("#pages").html(res['pages']);
-                var pageNum = res['pages'];
+				$("#pages").html("/ ");
+                $("#pages").append(res['pages']);
+				var pageNum = res['pages'];
                 var myUrl = "deckFilter.php?search="+search+"&filterDeck="+filterDeck+"&filterClass="+filterClass+"&pageNum="+pageNum+"&currPage="+currPage;
                 console.log(myUrl);   
             }  
@@ -113,6 +117,21 @@ $(document).ready(function(){
 			
             if(status == "success"){
                 $("#result").html(data); 
+                //console.log("data:"+data);      
+            }
+        });
+    });
+
+	$('.manifest-table').on('click', '.row-listener', function(event){
+        event.preventDefault(); // Prevents default action of event being triggered.
+		console.log("Opening...");
+		var pid = $(this).attr("id");
+		var myUrl = "includes/ticketModal.php";
+
+        $.post(myUrl, { ticketPid: pid }).done(function(data, status) {
+			
+            if(status == "success"){
+                $("#resulting-ticket").html(data); 
                 //console.log("data:"+data);      
             }
         });
