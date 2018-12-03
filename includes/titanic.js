@@ -7,6 +7,10 @@ $(document).ready(function(){
     var currPage = 1; 
     var myUrl = "deckFilter.php?search="+search+"&filterDeck="+filterDeck+"&filterClass="+filterClass+"&pageNum="+pageNum+"&currPage="+currPage; 
 
+    $('#closeTicket').click(function(){
+        console.log('hi');
+    }); 
+
     $("tbody").attr("id", "result");
 
     // AJAX for filtering the deck 
@@ -201,6 +205,7 @@ $(document).ready(function(){
     $("#openMenu").click(function(){
         $("#menuOverlay").show(); 
     })
+
 
 });
 

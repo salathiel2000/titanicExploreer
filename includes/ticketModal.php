@@ -37,6 +37,7 @@ if($stmt->fetch()){
 
 	echo '<div class="ticket">';
 	echo '<div class="ticket-content">'; 
+	echo '<img id="closeTicket" src="includes/assets/closeIcon.svg">';
 
 	//echo '	<div class="ticket-title">';
 	//echo '	</div>';
