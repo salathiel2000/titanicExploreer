@@ -67,8 +67,6 @@
 			if(!is_numeric($age) || $age > 150){
 				$error["age"] = "Please enter a valid age"; 
 			}
-		} else {
-			$error["age"] = "Please enter a value"; 
 		}
 
 		//income validation 
@@ -77,8 +75,6 @@
 			if(!is_numeric($income)){
 				$error["income"] = "Please enter a valid value"; 
 			}
-		} else {
-			$error["income"] = "Please enter a value"; 
 		}
 
 		$gender = $_POST['gender']; 
