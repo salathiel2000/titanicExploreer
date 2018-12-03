@@ -3,12 +3,18 @@ body{
 }
 
 /* Homepage start */
+#crew{
+    margin-top: 5rem;
+}
+
 #crew::after{
     content : ""; 
     position: absolute; 
     top: 0; 
     left: 0; 
     background: url("assets/titanic_grain.jpg"); 
+    background-repeat: no-repeat;
+    background-size: cover; 
     opacity: 0.15;
     width: 100vw; 
     height: 100vh; 
@@ -404,7 +410,7 @@ table.manifest-table td {
 	text-decoration: none;
 }
 
-/*Register start*/
+/*Register & Login start*/
     #register{
         display: flex; 
     }
@@ -532,4 +538,128 @@ table.manifest-table td {
     a.bottom{
         color: #000;
     }
-/*Register end*/
+
+    #login{
+        margin-top: 6rem !important;
+    }
+
+    #login #registerSubmit{
+        margin-top: 4rem !important;
+    }
+/*Register & Login end*/
+
+/*Header start*/
+#nameIcon{
+    color: white; 
+    margin: 0; 
+    padding: 1rem;
+    background-color: black;
+    border-radius: 50%; 
+    width: 28px;
+    height: 28px;
+}
+
+#nameIcon p{
+    margin: 0;
+    text-align: center; 
+    padding-top: 4px;
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+    letter-spacing: 2.3px; 
+}
+
+#nameHeader{
+    display: flex;
+    align-items: center;
+}
+
+#nameHeader h1{
+    font-size: 1.25rem;
+    font-family: 'Sentinel-Medium'; 
+    font-weight: 600; 
+    font-style: normal;  
+    margin-left: 1rem;
+}
+
+#menuHeader{
+    display: flex;
+    align-self: center; 
+}
+
+#menuHeader a{
+    color: #9C2B37; 
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+    font-size: 1.5rem;
+    letter-spacing: 3.5px; 
+    text-decoration: none;
+    margin-left: 0.5rem;
+}
+
+#header{
+    display: flex; 
+    justify-content: space-between;
+    margin: 0 2.5%; 
+}
+
+#headerParent{
+    position: absolute;
+    top: 1rem;
+    width: 100vw; 
+}
+
+#menuOverlay{
+    background-color: #F8FAF4; 
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    margin-right: 2.5%; 
+    filter: 8px;
+    display: none;
+}
+
+#menuOptions{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    height: 100%; 
+}
+
+#menuOptions a{
+    font-family: 'Sentinel-Medium'; 
+    font-weight: 600; 
+    font-style: normal; 
+    font-size: 3rem;
+    color: #000; 
+    text-decoration: none;
+    text-align: center; 
+    margin-bottom: 2rem;
+}
+
+#menuOptions a:hover{
+    background-color: white; 
+    opacity: 0.75; 
+}
+
+#closeHeader {
+    display: flex;
+    align-self: center;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    margin-right: 2.5%;
+}
+
+#closeHeader a{
+    color: #9C2B37; 
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+    font-size: 1.5rem;
+    letter-spacing: 3.5px; 
+    text-decoration: none;
+    margin-left: 0.5rem;
+}
