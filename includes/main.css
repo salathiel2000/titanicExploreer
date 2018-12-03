@@ -330,6 +330,7 @@ table.manifest-table td {
 	background-size: 100%;
 	background-repeat: no-repeat;
 	max-width: auto;
+	min-height: 37em;
 }
 
 .ticket-item h2 {
