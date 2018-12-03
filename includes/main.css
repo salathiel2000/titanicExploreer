@@ -2,6 +2,7 @@ body{
     margin: 0; 
 }
 
+/* Homepage start */
 #crew::after{
     content : ""; 
     position: absolute; 
@@ -70,6 +71,7 @@ body{
     width: 100%; 
 }
 
+/* Homepage end */
 
 fieldset{
     border: none; 
@@ -306,3 +308,133 @@ table.manifest-table td {
     font-style: normal;
 	text-decoration: none;
 }
+
+/*Register start*/
+    #register{
+        display: flex; 
+    }
+    .formImg img{
+        height: 100vh;
+    }
+
+    #registerForm{
+        background-color: #F8FAF4; 
+        width: 100%; 
+        text-align: center;
+    }
+
+    #registerForm img{
+        width: 20%;
+        margin-top: 2rem;
+    }
+
+    #registerForm form{
+        margin: 0 auto; 
+        width: 70%;
+    }
+
+    #registerForm h1{
+        font-family: 'Avenir-Next-Bold'; 
+        font-weight: 900; 
+        font-style: normal;
+        color: #9C2B37; 
+        font-size: 2rem;
+        text-align: center; 
+        letter-spacing: 2.6px; 
+    }
+
+    .stacked{
+        display: flex; 
+        flex-direction: column; 
+    }
+    
+    .stacked label{
+        font-family: 'Sentinel-Book'; 
+        font-weight: 500; 
+        font-style: normal; 
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .stacked input{
+        font-family: 'Courier'; 
+        font-weight: 500; 
+        font-style: normal;
+        font-size: 1.25rem;
+        border: none;
+        border-bottom: 1px solid #000;
+        background-color: transparent;  
+    }
+
+    .mandatory{
+        color: #9C2B37;
+    }
+
+    .row{
+        display: flex; 
+        justify-content: space-between;
+        padding-bottom: 1.5rem;
+    }
+
+    .half{
+        width: 45%; 
+    }
+
+    .third{
+        width: 30%; 
+    }
+
+    .radioLabel{
+        font-family: 'Courier'; 
+        font-weight: 500; 
+        font-style: normal;
+    }
+
+    .third #gender{
+        display: flex;
+        padding-top: 0.7rem;
+    }
+
+    #rightGender{
+        margin-left: 1rem;
+    }
+
+    .error{
+        color: #9C2B37; 
+        font-family: 'Sentinel-Book'; 
+        font-weight: 500; 
+        font-style: normal; 
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
+    }
+
+    #registerSubmit{
+        font-family: 'Avenir-Next-Bold'; 
+        font-weight: 900; 
+        font-style: normal;
+        font-size: 0.8rem;
+        letter-spacing: 0.7px; 
+        background-color: #000; 
+        color: white; 
+        border: none; 
+        padding: 1rem 2rem;
+    }
+
+    legend{
+        text-align: left; 
+    }
+
+    .bottom{
+        font-family: 'Sentinel-Book'; 
+        font-weight: 500; 
+        font-style: normal;
+        margin: 0;
+    }
+
+    p.bottom{
+        margin-top: 1rem;
+    }
+    a.bottom{
+        color: #000;
+    }
+/*Register end*/
