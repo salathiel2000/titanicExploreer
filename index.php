@@ -38,28 +38,25 @@
 
     ?>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Home Destination</th>
-                <th>Class</th>
-                <th>Cabin Number</th>
-            </tr>
-        </thead>
+    <div id="lobbyParent">
+        <div id="time">
+            <h1>IT’S 6:51PM, APRIL 10TH 1912</h1>
+            <p>We’ll be leaving Cherbourg soon. In the meantime get acquainted with others on the ship.</p>
+        </div>
+        <div id="lobby">
         
     <?php
     while($row = $result->fetch_assoc()){
-        echo    "<tr>"; 
-        echo        "<td><a href=\"passenger.php?pid=".$row['pid']."\">".$row['name']."</a></td>"; 
-        echo        "<td>".$row['homeDest']."</td>"; 
-        echo        "<td>".$row['class']."</td>"; 
-        echo        "<td>".$row['cabinNumber']."</td>"; 
-        echo    "</tr>";
+        $name = preg_split("/[\s,\.]+/", $row['name']); 
+        echo "<div class=\"lobbyNames\">";
+        echo "  <p class=\"individualName\">".$name[2]."</p>"; 
+        echo "  <a class=\"individualLink\" href=\"passenger.php?pid=".$row['pid']."\">More Info</a>"; 
+        echo "</div>";
     }
     ?>
 
-    </table>
+        </div>
+    </div>
 
 <?php
 	} 

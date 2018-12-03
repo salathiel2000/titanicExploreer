@@ -781,7 +781,7 @@ color: #ffffff;
 }
 
 #headerParent{
-    position: absolute;
+    position: fixed;
     top: 1rem;
     width: 100vw; 
 }
@@ -840,3 +840,81 @@ color: #ffffff;
     margin-left: 0.5rem;
 }
 /*Menu end*/
+
+/*Lobby start*/
+#lobby{
+    width: 300%; 
+    margin-top: 20rem;
+    margin-left: 4%; 
+    overflow-x: scroll; 
+}
+
+.lobbyNames{
+    width: 30vw;
+    float: left;  
+}
+
+.individualName{
+    font-family: 'Sentinel-Bold'; 
+    font-weight: 700; 
+    font-style: normal; 
+    font-size: 3rem;
+    margin-bottom:0;
+}
+
+.individualLink{
+    font-family: 'Sentinel-BookItalic'; 
+    font-weight: 500; 
+    font-style: italic; 
+    font-size: 1.25rem;
+    color: #000; 
+    text-decoration: none; 
+    /* padding-bottom: 1rem; */
+}
+
+.individualLink:hover{
+    border-bottom: 1px solid #000; 
+}
+
+#lobbyParent{
+    width: 100vw; 
+    /* height: 100vh;  */
+}
+
+#lobbyParent::after{
+    content : ""; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    background: url("assets/lobby_2.jpg"); 
+    background-repeat: no-repeat;
+    background-size: cover; 
+    opacity: 0.15;
+    width: 100vw; 
+    height: 100vh; 
+    z-index: -100;
+}
+
+#time{
+    position: fixed; 
+    margin-top: -7rem; 
+    margin-left: 4%; 
+}
+
+#time h1{
+    color: #9C2B37;
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+    letter-spacing: 2.6px;
+}
+
+#time p{
+    font-family: 'Sentinel-Book'; 
+    font-weight: 500; 
+    font-style: normal; 
+    font-size: 1.25rem;
+    width: 60%; 
+}
+
+/*Lobby end*/
