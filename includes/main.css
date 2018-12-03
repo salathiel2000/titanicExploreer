@@ -88,13 +88,17 @@ th{
 
 #manifest::after{
     content : "";
-    position: absolute; 
+    position: fixed;
     top: 0; 
     left: 0; 
     background: url("assets/titanic_grain.jpg"); 
     opacity: 0.15;
     width: 100vw; 
     height: 100vh; 
+	z-index: -100;
+	background-size: 100%;
+	background-repeat: no-repeat;
+
 }
 
 .ticket {

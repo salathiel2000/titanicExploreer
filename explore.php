@@ -2,6 +2,7 @@
 	// Includes <html> and <body>. Also includes navigation bar.
 	include("includes/header.php"); 
 ?>
+<div id="manifest">
 
 <?php
 
@@ -19,7 +20,6 @@
 
 	require_once("includes/pagination.php"); //Include pagination functions.
 ?>
-
 
 <form action="explore.php" method="get">
 	<header>
@@ -176,8 +176,10 @@ echo "<p id=\"pages\">".$pageNum."</p>";
 				echo '	</tr>';
 			}
 			
-			echo '	</table>';	
-
+			echo '	</table>';
+?>
+<div>
+<?php
 	// Includes minimal header. Closes </body>, and closes </html>.
 	include("includes/footer.php"); 
 ?>
