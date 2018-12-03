@@ -101,8 +101,8 @@ th{
 
 }
 
-table.manifest {
-
+table.manifest-table {
+	    border-collapse: collapse;
 }
 
 .ticket {

@@ -148,7 +148,7 @@ echo "<p id=\"pages\">".$pageNum."</p>";
 			}
 
 			// Print table.
-			echo '<table class="">';
+			echo '<table class="manifest-table">';
 			echo '	<thead>';
 			echo '		<tr>';
 			echo '		<th><strong>Name</strong></th>';
