@@ -547,6 +547,89 @@ table.manifest-table td {
         margin-top: 4rem !important;
     }
 /*Register & Login end*/
+/*Logout start*/
+#logout{
+    margin-top: 6rem !important;
+}
+
+table.logout-table {
+	box-sizing: border-box;
+	border-collapse: collapse;
+	width: 60%;
+	margin: auto;
+}
+table.logout-table tr {
+	border-bottom: 1px solid black;
+    font-family: 'Courier-Bold'; 
+    font-weight: 700; 
+    font-style: normal;
+	color: #000000;
+
+}
+
+
+table.logout-table th {
+	border-top: 4px solid black;
+	padding: 1em 0;
+	color: #9c2b37;
+    text-transform: uppercase;
+	font-size: 1.2em;
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+	padding: 1em;
+
+}
+table.logout-table th.right-bar {
+	border-right: 4px solid black;
+
+}
+
+
+/*table.logout-table tr:hover th {
+
+	color: #FFFFFF;
+
+}
+table.logout-table tr:hover {
+	background-color: #000000;
+	color: #FFFFFF;
+
+}*/
+
+
+table.logout-table td {
+	padding: 1em;
+
+}
+
+table.logout-table td.right-bar {
+	border-right: 4px solid black;
+
+}
+
+.redout {
+color: #ffffff;
+	background-color: #9c2b37;
+}
+.logout-button {
+	font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+    font-size: 0.8rem;
+    letter-spacing: 0.7px; 
+    background-color: #000; 
+    color: white; 
+    border: none; 
+    padding: 1rem 2rem;
+}
+
+.logout-button:hover {
+    background-color: #9c2b37; 
+}
+
+/*Logout end*/
+
 
 /*Menu start*/
 #nameIcon{
