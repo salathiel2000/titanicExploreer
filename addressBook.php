@@ -8,7 +8,7 @@
         $email = $_SESSION['valid_user']; 
     }
 
-    $query = "SELECT favorites.pid, name, homeDest, class, cabinNumber";
+    $query = "SELECT favorites.pid, name, class, cabinNumber";
     $query .= " FROM favorites"; 
     $query .= " INNER JOIN passenger ON favorites.pid = passenger.pid"; 
     $query .= " INNER JOIN ticket ON passenger.pid = ticket.pid"; 
@@ -20,30 +20,34 @@
     $stmt->execute(); 
     $result = $stmt->get_result(); 
 ?>
+<div id="addressbook">
+<div id="resulting-ticket"></div>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Home/Destination</th>
-            <th>Class</th>
-            <th>Cabin Number</th>
-        </tr>
-    </thead>
+<div class="ab">
+	<h1>Address Book</h1>
+	<table class="ab-table">
+		<thead>
+			<tr>
+				<th class="right-bar">Name</th>
+				<th>Cabin Number</th>
+				<th>Class</th>
+			</tr>
+		</thead>
 
-<?php
-    while($row = $result->fetch_assoc()){
-        echo "<tr>";
-        echo    "<td><a href=\"passenger.php?pid=".$row['pid']."\">".$row['name']."</a></td>";
-        echo    "<td>".$row['homeDest']."</td>";
-        echo    "<td>".$row['class']."</td>";
-        echo    "<td>".$row['cabinNumber']."</td>";
-        echo "</tr>"; 
-    }
+		<?php
+		while($row = $result->fetch_assoc()){
+			echo '<tr class="row-listener" id="'.$row['pid'].'">';
+			echo    '<td class="right-bar">'.$row['name'].'</td>';
+			echo    '<td>'.$row['cabinNumber'].'</td>';
+			echo    '<td>'.$row['class'].'</td>';
+			echo '</tr>'; 
+		}
 
-    $stmt->close();
-    $connection->close(); 
+		$stmt->close();
+		$connection->close(); 
 
-?>
+		?>
 
-</table>
+	</table>
+</div>
+</div>

@@ -59,7 +59,6 @@
 
     while ($row = $result->fetch_assoc()) { // Get associative array row by row.
         $output =  '<tr class="row-listener" id="'.$row['pid'].'">
-
                     <td id="passengerName">'.$row['name'].'</td>
                     <td id="homeDest"';
                     if (!empty($row['homeDest'])) $output .= '>'.$row['homeDest'];

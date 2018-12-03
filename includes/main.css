@@ -93,7 +93,101 @@ th{
     font-family: 'Courier-0blique'; 
     font-weight: 500; 
     font-style: italic;}
+/*Addressbook start*/
+#addressbook::after{
+    content : "";
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    background: url("assets/lobby_2.jpg"); 
+    opacity: 0.15;
+    width: 100vw; 
+    height: 100vh; 
+	z-index: -100;
+	background-size: 100%;
+	background-repeat: no-repeat;
 
+}
+.ab {
+	box-sizing: border-box;
+	margin: auto;
+    padding: 20px;
+    text-align: center;
+	width: 60em;
+	min-height: 50em;
+	height: auto;
+	padding: 2em 4em;
+	background-image: url("assets/addressBook.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	max-width: auto;
+}
+
+.ab h1 {
+	color: #9c2b37;
+	text-transform: uppercase;
+	font-size: 2.5em;
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+}
+table.ab-table {
+	box-sizing: border-box;
+	border-collapse: collapse;
+	width: 90%;
+	margin: auto;
+}
+table.ab-table tr {
+	border-bottom: 1px solid black;
+    font-family: 'Courier-Bold'; 
+    font-weight: 700; 
+    font-style: normal;
+	color: #000000;
+
+}
+
+
+table.ab-table th {
+	border-top: 4px solid black;
+	padding: 1em 0;
+	color: #9c2b37;
+    text-transform: uppercase;
+	font-size: 1.2em;
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+	padding: 1em;
+
+}
+table.ab-table th.right-bar {
+	border-right: 4px solid black;
+
+}
+
+
+table.ab-table tr:hover th {
+
+	color: #FFFFFF;
+
+}
+table.ab-table tr:hover {
+	background-color: #000000;
+	color: #FFFFFF;
+
+}
+
+
+table.ab-table td {
+	padding: 1em;
+
+}
+
+table.ab-table td.right-bar {
+	border-right: 4px solid black;
+
+}
+
+/*Manifest start*/
 #manifest::after{
     content : "";
     position: fixed;
@@ -222,7 +316,7 @@ table.manifest-table td {
 	padding: 1em;
 
 }
-
+/*Ticket start*/
 .ticket {
 	box-sizing: border-box;
 	margin: auto;
@@ -266,10 +360,6 @@ table.manifest-table td {
 	flex-direction:row;
 		text-align: left;
 
-}
-
-.ticket-title {
-	
 }
 
 .ticket-left-content {
