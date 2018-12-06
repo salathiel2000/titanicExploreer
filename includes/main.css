@@ -898,8 +898,7 @@ color: #ffffff;
 
 /*Lobby start*/
 #lobby{
-    width: 300%; 
-    margin-top: 20rem;
+    width: 250%; 
     margin-left: 4%; 
     overflow-x: scroll; 
 }
@@ -932,7 +931,10 @@ color: #ffffff;
 }
 
 #lobbyParent{
+    position: absolute; 
+    top: 50%; 
     width: 100vw; 
+    
     /* height: 100vh;  */
 }
 
@@ -975,3 +977,8 @@ color: #ffffff;
 }
 
 /*Lobby end*/
+
+#nameHeader{
+    text-decoration: none; 
+    color: #000000; 
+}

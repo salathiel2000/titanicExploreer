@@ -42,11 +42,11 @@
 						?>
 					</p>
 				</div>
-				<h1>
+				<a id="nameHeader" href="index.php"><h1>
 					<?php  
 						echo $fullName[2]." ".$fullName[0]; 
 					?>
-				</h1>
+				</h1></a>
 			</div>
 		<?php } else { ?>
 		<div id="nameHeader"></div>
