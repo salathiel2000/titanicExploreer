@@ -69,12 +69,15 @@
         
     <?php
     while($row = $result->fetch_assoc()){
-        $name = preg_split("/[\s,\.]+/", $row['name']); 
+        // $name = preg_split("/[\s,\.]+/", $row['name']); 
+        $name = preg_split('/[,\.]+/', $row['name']);
+        $fName = preg_split('/\s/', $name[2]); 
         echo "<div class=\"lobbyNames\">";
-        echo "  <p class=\"individualName\">".$name[2]."</p>"; 
+        echo "  <p class=\"individualName\">".$fName[1]."</p>"; 
         echo "  <a class=\"individualLink\" href=\"#\" id=".$row['pid']."\">More Info</a>"; 
         echo "</div>";
     }
+
     ?>
 
         </div>
