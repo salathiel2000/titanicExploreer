@@ -37,12 +37,14 @@
 			<div id="nameHeader">
 				<div id="nameIcon">
 					<p>
+						<!-- get first and last initial to place in name icon -->
 						<?php
 							echo substr($fullName[2], 0, 1)."".substr($fullName[0], 0, 1); 
 						?>
 					</p>
 				</div>
 				<a id="nameHeader" href="index.php"><h1>
+				<!-- get first and last name of passenger the user is assigned to -->
 					<?php  
 						echo $fullName[2]." ".$fullName[0]; 
 					?>
@@ -67,7 +69,7 @@
 	<div id="menuOptions">
 		<a href="index.php">Home</a>
 		<a href="explore.php">Explore</a>
-		
+		<!-- only show address book, profile and logout page after user is logged in -->
 		<?php if (isset($_SESSION['valid_user'])) {
 			echo '<a href="addressBook.php">Address Book</a>';
 			echo '<a href="profile.php">My Profile</a>';

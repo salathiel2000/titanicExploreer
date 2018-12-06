@@ -18,7 +18,6 @@
 			" (" . mysqli_connect_errno() . ")"
 			); // Just the basic example error message.
 		}
-		// echo '<br>Debug: Connection Successful</br>';
 	}
 	
 	function db_query($queryString) {

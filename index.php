@@ -27,12 +27,7 @@
     $query .=   " ORDER BY RAND()"; 
     $query .=   " LIMIT 10"; 
 
-    // $checkVal = 0;
-     
-    // $checkVal = 0; //used to test if values are returning correctly with the percentageChance
-
     if(percentChance(5)){
-        // $checkVal = 1;
         $query  =   "SELECT passenger.pid, name, homeDest, class, cabinNumber"; 
         $query .=   " FROM passenger"; // Begin table selection.
         $query .=   " INNER JOIN ticket ON passenger.pid = ticket.pid";
@@ -42,7 +37,6 @@
     }
 
     $result = db_query($query); 
-    // echo $checkVal; 
 
     $date_arr = array("April 10th, 1912", "April 10th, 1912", "April 11th, 1912");
     $message_arr = array("Southampton", "Cherbourg", "Queenstown"); 
@@ -69,7 +63,6 @@
         
     <?php
     while($row = $result->fetch_assoc()){
-        // $name = preg_split("/[\s,\.]+/", $row['name']); 
         $name = preg_split('/[,\.]+/', $row['name']);
         $fName = preg_split('/\s/', $name[2]); 
         echo "<div class=\"lobbyNames\">";
@@ -114,7 +107,6 @@
 
 <?php
 		db_connect(); // Quick connect function.
-		//echo print_r($_SESSION['valid_user']);
 //SELECT
 		$query = "SELECT ";
 		$query .= "*, ";
@@ -127,32 +119,11 @@
 //WHERE
 		$query .= " ORDER BY member.creationDate DESC ";
 //SUBMIT
-		//echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
 		$result = db_query($query); // Send off query to msqli.
 
 		if (!$result) {
 				die("Bad query! Please mark mercifully."); 
 			}
-
-			// Print table.
-			// echo '<h3>Recent Members</h3>';
-			// echo '<table>';
-			// echo '	<thead>';
-			// echo '		<tr>';
-			// echo '			<th><strong>Name</strong></th>';
-			// echo '			<th><strong>Date</strong></th>';
-			// echo '		</tr>';
-			// echo '	</thead>';
-
-			// echo '<tr id="result"></tr>';
-			// while ($row = $result->fetch_assoc()) { // Get associative array row by row.
-			// 	echo '	<tr>';
-			// 	echo '		<td>'.$row['fName'].' (<a href="passenger.php?pid='.$row['pid'].'">'.$row['name'].'</a>)</td>'; 
-			// 	echo '		<td>'.$row['creationDate'].'</td>';
-			// 	echo '	</tr>';
-			// }
-			
-			// echo '</table>';	
 	}
 
 	// Includes minimal header. Closes </body>, and closes </html>.

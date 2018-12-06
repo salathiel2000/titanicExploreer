@@ -39,9 +39,7 @@ if($stmt->fetch()){
 	echo '<div class="ticket">';
 	echo '<div class="ticket-content">'; 
 
-	//echo '	<div class="ticket-title">';
-	//echo '	</div>';
-		echo '	<div class="ticket-column">'; 
+	echo '	<div class="ticket-column">'; 
 
 	echo '<div class="ticket-left-content">'; 
 
@@ -122,15 +120,5 @@ if($stmt->fetch()){
 	echo '</div>'; 
 
 }
-
-//display button if user is logged in
-// if((isset($_SESSION['valid_user'])) && ($checkRes->num_rows == 0)){
-
-
-//have to add in functionality to check if passenger is already in address book 
-/*
-
-
-*/
 
 ?>

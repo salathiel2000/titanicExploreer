@@ -183,8 +183,6 @@
 		$stmt->close(); 
 		$connection->close(); 
 	}    	
-	
-	// print_r($error); 
 ?>
 
 <body>

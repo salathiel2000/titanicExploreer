@@ -129,13 +129,9 @@ $pageNum = 131;
 		}
 //LIMIT
 		$query .= " LIMIT ".$limit; 
-		// $query .= " OFFSET ".$offset; 
 //SUBMIT
-	//echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
 	$result = db_query($query); // Send off query to msqli.
-	//echo "<code id=\"testCode\"></code>";
 
-	
 	?>
 	<?php
 		

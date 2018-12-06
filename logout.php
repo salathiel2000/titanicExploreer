@@ -26,7 +26,7 @@
 		
 	<?php
 		db_connect(); // Quick connect function.
-		//echo print_r($_SESSION['valid_user']);
+
 		//SELECT
 		$query = "SELECT ";
 		$query .= "*, ";
@@ -37,11 +37,9 @@
 		$query .= " INNER JOIN passenger ON assignments.pid = passenger.pid";
 
 		//WHERE
-
 		$query .= " WHERE assignments.emailAddress = '". $_SESSION["valid_user"] . "'";
 
 		// UNION
-
 		$query .= " UNION";
 
 		//SELECT
@@ -54,10 +52,9 @@
 		$query .= " INNER JOIN passenger ON favorites.pid = passenger.pid";
 
 		//WHERE
-
 		$query .= " WHERE favorites.emailAddress = '". $_SESSION["valid_user"] . "'";
+		
 		//SUBMIT
-		//echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
 		$result = db_query($query); // Send off query to msqli.
 
 		if (!$result) { 

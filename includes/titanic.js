@@ -92,6 +92,7 @@ $(document).ready(function(){
          });
     });
 
+    //AJAX for choosing a page number to go to from dropdown
     $("#chooseNumber").change(function(event){
         currPage = $(this).val(); 
         myUrl = "deckFilter.php?search="+search+"&filterDeck="+filterDeck+"&filterClass="+filterClass+"&pageNum="+pageNum+"&currPage="+currPage; 
@@ -122,6 +123,7 @@ $(document).ready(function(){
         });
     });
 
+    //AJAX for showing ticket when row in explore table is clicked
 	$('.manifest-table').on('click', '.row-listener', function(event){
         event.preventDefault(); // Prevents default action of event being triggered.
 		console.log("Opening...");
@@ -150,6 +152,7 @@ $(document).ready(function(){
         });
     });
 
+    //AJAX for showing ticket when row in address book is clicked
     $('.ab-table').on('click', '.row-listener', function(event){
         event.preventDefault(); // Prevents default action of event being triggered.
 		console.log("Opening...");
@@ -178,6 +181,7 @@ $(document).ready(function(){
         });
     });
 
+    //AJAX request for showing tickets when More Info is clicked on lobby page
     $('.lobbyNames').on('click', '.individualLink', function(event){
         event.preventDefault(); // Prevents default action of event being triggered.
 		console.log("Opening...");
@@ -247,6 +251,7 @@ $(document).ready(function(){
     });
     });
 
+    //Close menu when clicked
     $("#closeMenu").click(function(){
         console.log("hi");
         $("#menuOverlay").hide(); 
@@ -256,6 +261,7 @@ $(document).ready(function(){
         }); 
     }); 
     
+    //open menu when menu is clicked
     $("#openMenu").click(function(){
         $("#menuOverlay").show(); 
         $('html, body').css({

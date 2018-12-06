@@ -38,13 +38,7 @@
     $limit = 10; 
     $pages = ceil($total / $limit);
     $currPage = 1;
-    // setCookie("pages", $pages, time() + (86400 * 30), "/"); 
-
-    // if(isset($_GET['pageNum'])){
-    //     $pageNum = (int) $_GET['pageNum']; 
-    //     $_SESSION['pageNum'] = $pageNum;
-    // }
-
+    
     //which page are we currently on
     if(isset($_GET['currPage'])){
         $currPage = $_GET['currPage']; 
@@ -75,12 +69,6 @@
     }
 
     $arr = ["output" => $outputArr, "pages" => $pages]; 
-    echo json_encode($arr); 
-  
-    // echo $query; 
-    // echo $output;
-
-    
-
+    echo json_encode($arr); //encode values in an array to be read as JSON objects in AJAX
                 
 ?>

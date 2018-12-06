@@ -18,9 +18,7 @@ if (isset($_SESSION['valid_user'])) {
 	$query .= " AND member.emailAddress = '". $_SESSION['valid_user'] . "'";
 		
 	
-//SUBMIT
-	//echo "<p>SQL Query:<br><div class=\"code-block\"><code>".$query."</code></div></p>"; // Print SQL statement in plain text.
-		
+//SUBMIT		
 	$result = db_query($query); // Send off query to msqli.
 
 	// Display Result
@@ -78,35 +76,8 @@ if (isset($_SESSION['valid_user'])) {
 		echo '</div>';
 	echo '</div>';
 
-	
-
-
-	/*echo '<p>Current Password: <input name="currentPassword" type="text"></p>';
-	echo '<p>New Password: <input name="pass1" type="text"> ';
-	echo 'Confirm Password: <input name="pass2" type="text"></p>';*/
-
-
 	echo '<input id="saveProfile" type="submit" name="save" value="Save">';
-
-	//echo '<p>Welcome <span id="displayFName">'.$row['fName'].'</span> '.$row['lName'].'! ('.$row['emailAddress'].')</p>';
-	//echo '<p>Your entered age is '.$row['userAge'].', your entered gender is '.$row['userGender'].', and your entered income ('.$row['annualIncome'].') adjusted for inflation puts you in class '.$row['userClass'].'.</p>';
-	//echo '<p>Based on your entered information, we have matched you to the following passenger from the Titanic:</p>';
-
-	/*
-	//UPDATE
-	$query = "UPDATE ";
-	$query .= "member, ";
-
-	// SET
-	$query .= "SET fName = '".$fName."' ";
-	//$query .= "lName = '". ."' ";
-
-	//WHERE
-	$query .= " WHERE member.emailAddress = ".$_SESSION['valid_user']; // Just makes it so I don't have to check for a condition being the FIRST in a long chain.
-    
-	//SUBMIT
-	$result = db_query($query); // Send off query to msqli.
-	*/ 
+ 
 	db_close(); // Also found in db_functions.
 }
 ?>

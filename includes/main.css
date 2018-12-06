@@ -93,6 +93,7 @@ th{
     font-family: 'Courier-0blique'; 
     font-weight: 500; 
     font-style: italic;}
+
 /*Addressbook start*/
 #addressbook::after{
     content : "";
@@ -214,8 +215,8 @@ table.ab-table td.right-bar {
 	border-collapse: collapse;
 	width: 70%;
 	margin: auto;
-	/* padding-top: 5em; */
 }
+
 .manifest-head {
 	margin: 2em;
 }
@@ -296,7 +297,6 @@ table.manifest-table tr {
 
 }
 
-
 table.manifest-table th {
 	border-top: 4px solid black;
 	padding: 1em 0;
@@ -325,15 +325,13 @@ table.manifest-table td {
 	padding: 1em;
 
 }
+
 /*Ticket start*/
 
 #closeTicket{
     float: right;
 }
 
-/* #addressBook .ticket{
-    margin-left: 15%; 
-} */
 .ticket {
     position: absolute; 
 	box-sizing: border-box;
@@ -356,7 +354,6 @@ table.manifest-table td {
     margin-top: -296px;
     margin-left: -30em;
 }
-
 
 #modal{
     position: fixed; /* Stay in place */
@@ -487,10 +484,10 @@ table.manifest-table td {
     color: #9C2B37; 
     letter-spacing: 5px;
 }
+
 .profile-wrapper  {
 	text-align: left;
 }
-
 
 .profile-wrapper h1 a {
     text-transform: uppercase;
@@ -502,42 +499,41 @@ table.manifest-table td {
     color: #9C2B37; 
 }
 
-.profile-c {
-
-	
+.profile-c {	
 	border-top: 4px solid black;
 	text-align: left;
 	width: 60%;
 	display: flex;
 	flex-direction: column;
 }
-.profile-column-right {
 
+.profile-column-right {
 	text-align: left;
 	width: auto;
 	display: flex;
 	flex-direction: column;
 }
+
 .profile-item {
 	width: 50%;
 	display: flex;
 	flex-direction: row;
 }
+
 .profile-content {
 	border-top: 4px solid black;
-
-		flex-direction: column;
-
+    flex-direction: column;
 }
+
 .profile-content h1 {
     text-transform: capitalize;
-
 	color: black;
     font-family: 'Sentinel-Bold'; 
     font-weight: 700; 
     font-style: normal; 
 	font-size: 2em;
 }
+
 #saveProfile{
     font-family: 'Avenir-Next-Bold'; 
     font-weight: 900; 
@@ -549,6 +545,7 @@ table.manifest-table td {
     border: none; 
     padding: 1rem 2rem;
 }
+
 .profile-table {
 	width: auto;
 	display: block;
@@ -556,142 +553,145 @@ table.manifest-table td {
 
 
 /*Register & Login start*/
-    #register{
-        display: flex; 
-    }
-    .formImg img{
-        height: 100vh;
-    }
+#register{
+    display: flex; 
+}
 
-    #registerForm{
-        background-color: #F8FAF4; 
-        width: 100%; 
-        text-align: center;
-    }
+.formImg img{
+    height: 100vh;
+}
 
-    #registerForm img{
-        width: 20%;
-        margin-top: 2rem;
-    }
+#registerForm{
+    background-color: #F8FAF4; 
+    width: 100%; 
+    text-align: center;
+}
 
-    #registerForm form{
-        margin: 0 auto; 
-        width: 70%;
-    }
+#registerForm img{
+    width: 20%;
+    margin-top: 2rem;
+}
 
-    #registerForm h1{
-        font-family: 'Avenir-Next-Bold'; 
-        font-weight: 900; 
-        font-style: normal;
-        color: #9C2B37; 
-        font-size: 2rem;
-        text-align: center; 
-        letter-spacing: 2.6px; 
-    }
+#registerForm form{
+    margin: 0 auto; 
+    width: 70%;
+}
 
-    .stacked{
-        display: flex; 
-        flex-direction: column; 
-    }
-    
-    .stacked label{
-        font-family: 'Sentinel-Book'; 
-        font-weight: 500; 
-        font-style: normal; 
-        font-size: 1rem;
-        text-align: left;
-    }
+#registerForm h1{
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+    color: #9C2B37; 
+    font-size: 2rem;
+    text-align: center; 
+    letter-spacing: 2.6px; 
+}
 
-    .stacked input{
-        font-family: 'Courier'; 
-        font-weight: 500; 
-        font-style: normal;
-        font-size: 1.25rem;
-        border: none;
-        border-bottom: 1px solid #000;
-        background-color: transparent;  
-    }
+.stacked{
+    display: flex; 
+    flex-direction: column; 
+}
 
-    .mandatory{
-        color: #9C2B37;
-    }
+.stacked label{
+    font-family: 'Sentinel-Book'; 
+    font-weight: 500; 
+    font-style: normal; 
+    font-size: 1rem;
+    text-align: left;
+}
 
-    .row{
-        display: flex; 
-        justify-content: space-between;
-        padding-bottom: 1.5rem;
-    }
+.stacked input{
+    font-family: 'Courier'; 
+    font-weight: 500; 
+    font-style: normal;
+    font-size: 1.25rem;
+    border: none;
+    border-bottom: 1px solid #000;
+    background-color: transparent;  
+}
 
-    .half{
-        width: 45%; 
-    }
+.mandatory{
+    color: #9C2B37;
+}
 
-    .third{
-        width: 30%; 
-    }
+.row{
+    display: flex; 
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+}
 
-    .radioLabel{
-        font-family: 'Courier'; 
-        font-weight: 500; 
-        font-style: normal;
-    }
+.half{
+    width: 45%; 
+}
 
-    .third #gender{
-        display: flex;
-        padding-top: 0.7rem;
-    }
+.third{
+    width: 30%; 
+}
 
-    #rightGender{
-        margin-left: 1rem;
-    }
+.radioLabel{
+    font-family: 'Courier'; 
+    font-weight: 500; 
+    font-style: normal;
+}
 
-    .error{
-        color: #9C2B37; 
-        font-family: 'Sentinel-Book'; 
-        font-weight: 500; 
-        font-style: normal; 
-        font-size: 0.75rem;
-        margin-top: 0.25rem;
-    }
+.third #gender{
+    display: flex;
+    padding-top: 0.7rem;
+}
 
-    #registerSubmit{
-        font-family: 'Avenir-Next-Bold'; 
-        font-weight: 900; 
-        font-style: normal;
-        font-size: 0.8rem;
-        letter-spacing: 0.7px; 
-        background-color: #000; 
-        color: white; 
-        border: none; 
-        padding: 1rem 2rem;
-    }
+#rightGender{
+    margin-left: 1rem;
+}
 
-    legend{
-        text-align: left; 
-    }
+.error{
+    color: #9C2B37; 
+    font-family: 'Sentinel-Book'; 
+    font-weight: 500; 
+    font-style: normal; 
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
 
-    .bottom{
-        font-family: 'Sentinel-Book'; 
-        font-weight: 500; 
-        font-style: normal;
-        margin: 0;
-    }
+#registerSubmit{
+    font-family: 'Avenir-Next-Bold'; 
+    font-weight: 900; 
+    font-style: normal;
+    font-size: 0.8rem;
+    letter-spacing: 0.7px; 
+    background-color: #000; 
+    color: white; 
+    border: none; 
+    padding: 1rem 2rem;
+}
 
-    p.bottom{
-        margin-top: 1rem;
-    }
-    a.bottom{
-        color: #000;
-    }
+legend{
+    text-align: left; 
+}
 
-    #login{
-        margin-top: 6rem !important;
-    }
+.bottom{
+    font-family: 'Sentinel-Book'; 
+    font-weight: 500; 
+    font-style: normal;
+    margin: 0;
+}
 
-    #login #registerSubmit{
-        margin-top: 4rem !important;
-    }
+p.bottom{
+    margin-top: 1rem;
+}
+
+a.bottom{
+    color: #000;
+}
+
+#login{
+    margin-top: 6rem !important;
+}
+
+#login #registerSubmit{
+    margin-top: 4rem !important;
+}
 /*Register & Login end*/
+
 /*Logout start*/
 #logout{
     margin-top: 6rem !important;
@@ -706,15 +706,14 @@ table.logout-table {
 	width: 60%;
 	margin: auto;
 }
+
 table.logout-table tr {
 	border-bottom: 1px solid black;
     font-family: 'Courier-Bold'; 
     font-weight: 700; 
     font-style: normal;
 	color: #000000;
-
 }
-
 
 table.logout-table th {
 	border-top: 4px solid black;
@@ -726,38 +725,22 @@ table.logout-table th {
     font-weight: 900; 
     font-style: normal;
 	padding: 1em;
-
 }
+
 table.logout-table th.right-bar {
 	border-right: 4px solid black;
-
 }
-
-
-/*table.logout-table tr:hover th {
-
-	color: #FFFFFF;
-
-}
-table.logout-table tr:hover {
-	background-color: #000000;
-	color: #FFFFFF;
-
-}*/
-
 
 table.logout-table td {
 	padding: 1em;
-
 }
 
 table.logout-table td.right-bar {
 	border-right: 4px solid black;
-
 }
 
 .redout {
-color: #ffffff;
+    color: #ffffff;
 	background-color: #9c2b37;
 }
 .logout-button {
@@ -777,7 +760,6 @@ color: #ffffff;
 }
 
 /*Logout end*/
-
 
 /*Menu start*/
 #nameIcon{
@@ -924,7 +906,6 @@ color: #ffffff;
     font-size: 1.25rem;
     color: #000; 
     text-decoration: none; 
-    /* padding-bottom: 1rem; */
 }
 
 .individualLink:hover{
@@ -933,7 +914,6 @@ color: #ffffff;
 
 #lobbyParent{
     width: 100vw; 
-    /* height: 100vh;  */
 }
 
 #lobbyParent::after{
