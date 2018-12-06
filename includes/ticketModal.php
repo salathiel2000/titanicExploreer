@@ -59,7 +59,10 @@ if($stmt->fetch()){
 	echo '	<div class="ticket-item">'; 
 
     echo '		<h2>Age</h2>'; 
-    echo $age;
+	echo ''; 
+	if($age !== NULL){
+		echo (int) $age;
+	}
 	echo '	</div>'; 
 
 	echo '	<div class="ticket-item">'; 

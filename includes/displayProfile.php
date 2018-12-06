@@ -60,7 +60,11 @@ if (isset($_SESSION['valid_user'])) {
 		echo '	</tr>';
 		echo '	<tr>';
 		echo '		<td style="text-align:right;"><strong>Age: </strong></td>';
-		echo '		<td>'.$row['age'].' years old</td>';
+		echo '		<td>'.''; 
+		if($row['age'] !== NULL){
+			echo (int) $row['age'].' years old</td>'; 
+		}
+		echo ' 		</td>';
 		echo '	</tr>';
 		echo '	<tr>';
 		echo '		<td style="text-align:right;"><strong>Family Onboard: </strong></td>';
@@ -77,7 +81,7 @@ if (isset($_SESSION['valid_user'])) {
 		echo '	</tr>';
 		echo '	<tr>';
 		echo '		<td style="text-align:right;"><strong>Fare Paid: </strong></td>';
-		echo '		<td>$'.$row['fare'].' USD</td>';
+		echo '		<td>$'.round($row['fare'],2).' USD</td>';
 		echo '	</tr>';
 		echo '	<tr>';
 		echo '		<td style="text-align:right;"><strong>Class: </strong></td>';
